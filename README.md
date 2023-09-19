@@ -1,6 +1,6 @@
 # Pharma GO
 
-![LOGO](./Imagenes/Pharma%20Go%20logo.png)
+![LOGO](./imagenes/Pharma%20Go%20logo.png)
 
 # Estructura del repositorio
 
