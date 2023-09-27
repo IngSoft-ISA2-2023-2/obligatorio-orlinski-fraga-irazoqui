@@ -806,6 +806,53 @@ namespace PharmaGo.Test.BusinessLogic.Test
             Assert.AreEqual(2, result.Count());
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidResourceException))]
+        public void CreateStockRequest_WithADrugWithZeroQuantity_ShouldReturnException()
+        {
+            var drug = new Drug() { Id = 1, Code = "XF324" };
+            User employee = new User() { Id = 1, UserName = "jcastro" };
+            var stockRequest = new StockRequest()
+            {
+                Id = 1,
+                Status = Domain.Enums.StockRequestStatus.Pending,
+                Employee = employee,
+                Details = new List<StockRequestDetail>()
+                {
+                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = 50 },
+                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = 0 }
+                },
+                RequestDate = DateTime.Now
+            };
+
+            //Act
+
+            _stockRequestManager.CreateStockRequest(stockRequest, token);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidResourceException))]
+        public void CreateStockRequest_WithADrugWithNegativeQuantity_ShouldReturnException()
+        {
+            var drug = new Drug() { Id = 1, Code = "XF324" };
+            User employee = new User() { Id = 1, UserName = "jcastro" };
+            var stockRequest = new StockRequest()
+            {
+                Id = 1,
+                Status = Domain.Enums.StockRequestStatus.Pending,
+                Employee = employee,
+                Details = new List<StockRequestDetail>()
+                {
+                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = 50 },
+                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = -10 }
+                },
+                RequestDate = DateTime.Now
+            };
+
+            //Act
+            _stockRequestManager.CreateStockRequest(stockRequest, token);
+        }
+
     }
 }
 
