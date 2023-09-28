@@ -23,7 +23,7 @@
 - Andrés Fraga Nº 151351
 - Santiago Irazoqui Nº 234730
 
-# Informe de avance
+# Entregas
 
 - [Entrega 1](#entrega-1)
 - [Entrega 2](#entrega-2)
@@ -49,6 +49,7 @@ Además, se recomienda implementar una sólida estrategia de pruebas y revisión
 En resumen, este analisis de software ha proporcionado una hoja de ruta clara para la mejora continua de PharmaGo y la entrega de un producto más sólido y eficiente en las siguientes iteraciones.
 
 ## Entrega 2
+### Informe de avance
 
 ### Artefactos
 
