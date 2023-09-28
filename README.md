@@ -32,11 +32,11 @@
 
 ### Artefactos
 
-- [Definición y uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Proceso%20de%20ingenieria%20en%20KANBAN.md)
-- [Creación y posterior mantenimiento del repositorio: elementos que contiene y cómo los van a versionar](./documentos/Mantenimiento%20del%20repositorio.md)
-- [Detalle de registro de esfuerzo](./documentos/Detalle%20de%20registro%20de%20esfuerzo.pdf)
-- [Resumen de Issues](./documentos/Resumen%20de%20Issues.pdf)
-- [Resumen de la retrospectiva](./documentos/Resumen%20de%20la%20retrospectiva.pdf)
+- [Definición y uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%201/Proceso%20de%20ingenieria%20en%20KANBAN.md)
+- [Creación y posterior mantenimiento del repositorio: elementos que contiene y cómo los van a versionar](./documentos/Entrega%201/Mantenimiento%20del%20repositorio.md)
+- [Detalle de registro de esfuerzo](./documentos/Entrega%201//Detalle%20de%20registro%20de%20esfuerzo.pdf)
+- [Resumen de Issues](./documentos/Entrega%201/Resumen%20de%20Issues.pdf)
+- [Resumen de la retrospectiva](./documentos/Entrega%201/Resumen%20de%20la%20retrospectiva.pdf)
 
 ### Conclusiones del equipo
 
@@ -52,8 +52,8 @@ En resumen, este analisis de software ha proporcionado una hoja de ruta clara pa
 
 ### Artefactos
 
-- [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Proceso%20de%20ingenieria%20en%20KANBAN%202.md)
-- [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
-- [Informe con identificación y justificación de los bugs](./documentos/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
+- [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%202/Proceso%20de%20ingenieria%20en%20KANBAN%202.md)
+- [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%202/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
+- [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
 
 ### Conclusiones del equipo
