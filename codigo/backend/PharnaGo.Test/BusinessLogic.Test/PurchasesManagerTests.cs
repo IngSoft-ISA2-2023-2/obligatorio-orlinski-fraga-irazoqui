@@ -4,6 +4,8 @@ using PharmaGo.BusinessLogic;
 using PharmaGo.Domain.Entities;
 using PharmaGo.Exceptions;
 using PharmaGo.IDataAccess;
+using PharmaGo.WebApi.Controllers;
+using PharmaGo.WebApi.Models.In;
 
 namespace PharmaGo.Test.BusinessLogic.Test
 {
@@ -686,6 +688,17 @@ namespace PharmaGo.Test.BusinessLogic.Test
             var response = _purchasesManager.RejectPurchaseDetail(1, 1, "XF324");
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidResourceException))]
+        public void Get_Tracking_Invalid_Code_InvalidResourceException()
+        {
+            string invalidTrackingCode = "InvalidTrackingCode";
+            _purchaseRespository
+                .Setup(service => service.GetOneDetailByExpression(p => p.TrackingCode == invalidTrackingCode))
+                .Returns((Purchase)null);
+
+            var result = _purchasesManager.GetPurchaseByTrackingCode(invalidTrackingCode);
+        }
     }
 }
 
