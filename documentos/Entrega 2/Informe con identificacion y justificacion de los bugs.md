@@ -7,7 +7,7 @@ Luego de hablarlo en equipo y haberlo presentado en la entrega anterior, de la l
 Implica una gran confusión al usuario a la hora de intentar hacer el trackeo de su pedido, ya que no se puede saber si se ha equivocado en algún caracter del código, es un error en el entorno, el sistema se encuentra caído o cualquier otro tipo de falla posible.
 - Captura: 
 
-![PrimerBugImagen](../imagenes/Primer%20Bug.png)
+![PrimerBugImagen](../../imagenes/Primer%20Bug.png)
 
 - Video: [Primer Bug](https://cloud.degoo.com/share/dyEX6W36B_4mJy8sBvFbhg)
 
@@ -21,7 +21,7 @@ Esto conlleva a una gran inconsistencia entre el front end y el back end, ya que
 Aunque el mismo sí queda registrado en la base de datos como se puede observar a continuación. 
 - Captura:
 
-![SegundoBugImagen](../imagenes/Segundo%20Bug.png)
+![SegundoBugImagen](../../imagenes/Segundo%20Bug.png)
 
 - Video: [Segundo Bug](https://youtu.be/nk8O95cVvWU)
 
@@ -36,7 +36,7 @@ Además de también ser un problema de manejo en el backend respecto al tipo de 
 
 - Captura: 
 
-![TercerBugImagen](../imagenes/Tercer%20Bug.png)
+![TercerBugImagen](../../imagenes/Tercer%20Bug.png)
 
 - Video: [Tercer Bug](https://youtu.be/tYGSl46HxL8)
 
