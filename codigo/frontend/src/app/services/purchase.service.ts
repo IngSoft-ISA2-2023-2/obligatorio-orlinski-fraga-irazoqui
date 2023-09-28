@@ -38,7 +38,7 @@ export class PurchaseService {
       .pipe(
         tap(),
         catchError(this.handleError<PurchaseResponse>
-          (`Get Purchase By Tracking Code code=${code}`))
+          (`Get purchase by tracking code "${code}"`))
       );
     }
 
