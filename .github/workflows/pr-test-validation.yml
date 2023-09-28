@@ -3,7 +3,7 @@ name: test-validation
 on:
   push:
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop, release ]
     paths:
     - '**.cs'
     - '**.csproj'
