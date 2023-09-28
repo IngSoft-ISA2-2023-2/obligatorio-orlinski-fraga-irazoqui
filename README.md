@@ -55,5 +55,6 @@ En resumen, este analisis de software ha proporcionado una hoja de ruta clara pa
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%202/Proceso%20de%20ingenieria%20en%20KANBAN%202.md)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%202/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
 - [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
+- [Evidencia de reparación de bugs con TDD](./documentos/Entrega%202/Evidencia%20de%20reparaci%C3%B3n%20de%20bugs%20con%20TDD.pdf)
 
 ### Conclusiones del equipo
