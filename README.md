@@ -50,6 +50,13 @@ En resumen, este analisis de software ha proporcionado una hoja de ruta clara pa
 
 ## Entrega 2
 ### Informe de avance
+Para esta entrega, el equipo se centró en la resolución de algunos de los bugs identificados para la entrega 1, y en la automatización de parte del pipeline de desarrollo.
+
+Los bugs fueron seleccionados tomando en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasficiaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD. De esta manera, nos aseguramos tener un diseño simple y código testeable, ampliando también la base fundamental de tests unitarios.
+
+Por otro lado, la automatización de partes del pipeline se realizó con Github Actions. Utilizandolas pudimos lograr que, por ejemplo, una pull request siempre tenga todos los tests en verde antes de ser mergeada a otra rama.
+
+En esta entrega decidimos cambiar el tablero y pasar a utilizar un tablero sustentable, ya que creímos que se ajustaba mejor a las necesidades de esta entrega.
 
 ### Artefactos
 
