@@ -23,7 +23,7 @@
 - Andrés Fraga Nº 151351
 - Santiago Irazoqui Nº 234730
 
-# Informe de avance
+# Entregas
 
 - [Entrega 1](#entrega-1)
 - [Entrega 2](#entrega-2)
@@ -49,11 +49,20 @@ Además, se recomienda implementar una sólida estrategia de pruebas y revisión
 En resumen, este analisis de software ha proporcionado una hoja de ruta clara para la mejora continua de PharmaGo y la entrega de un producto más sólido y eficiente en las siguientes iteraciones.
 
 ## Entrega 2
+### Informe de avance
+Para esta entrega, el equipo se centró en la resolución de algunos de los bugs identificados para la entrega 1, y en la automatización de parte del pipeline de desarrollo.
+
+Los bugs fueron seleccionados tomando en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasficiaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD. De esta manera, nos aseguramos tener un diseño simple y código testeable, ampliando también la base fundamental de tests unitarios.
+
+Por otro lado, la automatización de partes del pipeline se realizó con Github Actions. Utilizandolas pudimos lograr que, por ejemplo, una pull request siempre tenga todos los tests en verde antes de ser mergeada a otra rama.
+
+En esta entrega decidimos cambiar el tablero y pasar a utilizar un tablero sustentable, ya que creímos que se ajustaba mejor a las necesidades de esta entrega.
 
 ### Artefactos
 
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%202/Proceso%20de%20ingenieria%20en%20KANBAN%202.md)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%202/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
 - [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
+- [Evidencia de reparación de bugs con TDD](./documentos/Entrega%202/Evidencia%20de%20reparaci%C3%B3n%20de%20bugs%20con%20TDD.pdf)
 
 ### Conclusiones del equipo
