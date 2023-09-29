@@ -62,7 +62,7 @@ namespace PharmaGo.BusinessLogic
                     throw new ResourceNotFoundException($"Pharmacy {detail.Pharmacy.Id} not found");
 
                 if (detail.Quantity <= 0)
-                    throw new InvalidResourceException("The Quantity is a mandatory field");
+                    throw new InvalidResourceException("All items quantity should be bigger than zero");
 
                 string drugCode = detail.Drug.Code;
                 var drug = pharmacy.Drugs.FirstOrDefault(x => x.Code == drugCode && x.Deleted == false);
