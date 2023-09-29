@@ -52,13 +52,11 @@ En resumen, este analisis de software ha proporcionado una hoja de ruta clara pa
 
 ### Informe de avance
 
-Para esta entrega, el equipo se centró en la resolución de algunos de los bugs identificados para la entrega 1, y en la automatización de parte del pipeline de desarrollo.
+En esta etapa del proyecto, el equipo se centró en seleccionar y resolver 3 bugs de aquellos que fueron relevados en la entrega anterior. Para seleccionarlos, se tomó en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasificaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD.
 
-Los bugs fueron seleccionados tomando en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasficiaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD. De esta manera, nos aseguramos tener un diseño simple y código testeable, ampliando también la base fundamental de tests unitarios.
+Por otro lado, también nos enfocamos en la automatización de partes del pipeline de desarrollo. Este se realizó con Github Actions, y diseñamos el pipeline junto con el tablero para identificar qué secciones se pueden automatizar.
 
-Por otro lado, la automatización de partes del pipeline se realizó con Github Actions. Utilizandolas pudimos lograr que, por ejemplo, una pull request siempre tenga todos los tests en verde antes de ser mergeada a otra rama.
-
-En esta entrega decidimos cambiar el tablero y pasar a utilizar un tablero sustentable, ya que creímos que se ajustaba mejor a las necesidades de esta entrega.
+En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un tablero sustentable, ya que creímos que se ajustaba mejor a las necesidades actuales.
 
 ### Artefactos
 
@@ -69,3 +67,10 @@ En esta entrega decidimos cambiar el tablero y pasar a utilizar un tablero suste
 - [Configuración del pipeline y si vínculo con el tablero](./documentos/Entrega%202/Configuracion%20pipeline.md)
 
 ### Conclusiones del equipo
+
+En primer lugar, el tablero sustentable demostró ser mucho más útil para el equipo en esta etapa. Ahora que tenemos las issues y tareas bien definidas, fue más importante para el equipo poder entender rápidamente en qué estado se encuentra cada tarjeta. De esta manera, si una tarjeta se encuentra en Review por ejemplo, sabemos que hay un PR esperando para ser revisado, aprobado, y mergeado. Esto logró que la comunicación del equipo sea más fluida.
+
+Trabajar con TDD nos permitió estar seguros de nuestro trabajo, ya que tenemos los tests (tanto los nuestros como aquellos realizados previamente por los autores del proyecto original) funcionando como una base para chequear los requerimientos. Pudimos lograr entonces un diseño simple con código testeable. 
+
+En esta etapa aprendimos mucho sobre la automatización de ciertas partes del pipeline de desarrollo. Fue una buena oportunidad para investigar sobre el tema, ver qué acciones es posible utilizar, y sobre todo nos permitió acercarnos un poco más a las prácticas de entrega continua.
+
