@@ -52,9 +52,9 @@ En resumen, este analisis de software ha proporcionado una hoja de ruta clara pa
 
 ### Informe de avance
 
-En esta etapa del proyecto, el equipo se centró en seleccionar y resovler 3 bugs de aquellos que fueron relevados en la entrega anterior. Para seleccionarlos, se tomo en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasficiaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD.
+En esta etapa del proyecto, el equipo se centró en seleccionar y resolver 3 bugs de aquellos que fueron relevados en la entrega anterior. Para seleccionarlos, se tomó en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasificaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD.
 
-Por otro lado, también nos enfocamos en la automatización de partes del pipeline de desarrollo. Este se realizó con Github Actions, y diseñamos el pipeline junto con el tablero para identificar que secciones se pueden automatizar.
+Por otro lado, también nos enfocamos en la automatización de partes del pipeline de desarrollo. Este se realizó con Github Actions, y diseñamos el pipeline junto con el tablero para identificar qué secciones se pueden automatizar.
 
 En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un tablero sustentable, ya que creímos que se ajustaba mejor a las necesidades actuales.
 
@@ -68,8 +68,9 @@ En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un ta
 
 ### Conclusiones del equipo
 
-En primer lugar, el tablero sustenable demostró ser mucho más útil para el equipo en esta etapa. Ahora que tenemos las issues y tareas bien definidas, fue más importante para el equipo poder entender rápidamente en que estado se encuentra cada tarjeta. De esta manera, si una tarjeta se encuentra en Review, sabemos que hay un PR esperando para ser revisado, aprobado, y mergeado. Esto logro que la comunicación del equipo sea más fluida.
+En primer lugar, el tablero sustentable demostró ser mucho más útil para el equipo en esta etapa. Ahora que tenemos las issues y tareas bien definidas, fue más importante para el equipo poder entender rápidamente en qué estado se encuentra cada tarjeta. De esta manera, si una tarjeta se encuentra en Review por ejemplo, sabemos que hay un PR esperando para ser revisado, aprobado, y mergeado. Esto logró que la comunicación del equipo sea más fluida.
 
-Trabajar con TDD nos permitio estar seguros de nuestro trabajo, ya que tenemos los tests (tanto los nuestros como aquellos hechos previamente por los autores del proyecto original) funcionando como una base para chequear los requerimientos. Pudimos lograr entonces un diseño simple con código testeable. 
+Trabajar con TDD nos permitió estar seguros de nuestro trabajo, ya que tenemos los tests (tanto los nuestros como aquellos realizados previamente por los autores del proyecto original) funcionando como una base para chequear los requerimientos. Pudimos lograr entonces un diseño simple con código testeable. 
 
-En esta etapa aprendimos muchos sobre la automatización de ciertas partes del pipeline de desarrollo. Fue una buena oportunidad para investigar sobre el tema, ver que acciones es posible utilizar, y sobre todo nos permitió acercarnos un poco más a las practicas de entrega continua.
+En esta etapa aprendimos mucho sobre la automatización de ciertas partes del pipeline de desarrollo. Fue una buena oportunidad para investigar sobre el tema, ver qué acciones es posible utilizar, y sobre todo nos permitió acercarnos un poco más a las prácticas de entrega continua.
+
