@@ -65,6 +65,12 @@ En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un ta
 - [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
 - [Evidencia de reparación de bugs con TDD](./documentos/Entrega%202/Evidencia%20de%20reparaci%C3%B3n%20de%20bugs%20con%20TDD.pdf)
 - [Configuración del pipeline y si vínculo con el tablero](./documentos/Entrega%202/Configuracion%20pipeline.md)
+- [Detalle de registro de esfuerzo](./documentos/Entrega%202/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%202).pdf)
+- [Video de revisión de bugs con el PO](https://youtu.be/Xfz3ubNvXgk)
+- [Resumen de la retrospectiva](./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf)
+
+#### Ceremonias realizadas
+![Ceremonias](./imagenes/Entrega%202/Ceremonias.png)
 
 ### Conclusiones del equipo
 
