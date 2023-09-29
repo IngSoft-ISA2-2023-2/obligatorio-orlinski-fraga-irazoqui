@@ -62,7 +62,7 @@ namespace PharmaGo.BusinessLogic
                     throw new ResourceNotFoundException($"Pharmacy {detail.Pharmacy.Id} not found");
 
                 if (detail.Quantity <= 0)
-                    throw new InvalidResourceException("The Quantity is a mandatory field");
+                    throw new InvalidResourceException("All items quantity should be bigger than zero");
 
                 string drugCode = detail.Drug.Code;
                 var drug = pharmacy.Drugs.FirstOrDefault(x => x.Code == drugCode && x.Deleted == false);
@@ -280,7 +280,11 @@ namespace PharmaGo.BusinessLogic
             if (string.IsNullOrEmpty(trackingCode))
                 throw new InvalidResourceException($"Tracking Code is can't be empty");
 
-            return _purchasesRepository.GetOneDetailByExpression(p => p.TrackingCode == trackingCode);
+            Purchase trackedPurchase = _purchasesRepository.GetOneDetailByExpression(p => p.TrackingCode == trackingCode);
+            if (trackedPurchase == null)
+                throw new InvalidResourceException($"Tracking code does not exist");
+
+            return trackedPurchase;
         }
     }
 }

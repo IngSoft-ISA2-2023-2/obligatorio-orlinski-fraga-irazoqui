@@ -71,7 +71,13 @@ namespace PharmaGo.BusinessLogic
             User existEmployee = null;
             if (stockRequest.Details == null) throw new InvalidResourceException("Invalid stock details.");
             if (stockRequest.Details.Count == 0) throw new InvalidResourceException("Invalid stock details.");
-
+            foreach (StockRequestDetail requestDetail in stockRequest.Details)
+            {
+                if(requestDetail.Quantity <= 0)
+                {
+                    throw new InvalidResourceException("Invalid stock details. Drug quantity can't be less than 1");
+                }
+            }
             var session = _sessionRepository.GetOneByExpression(session => session.Token == new Guid(token));
             if (session == null) throw new InvalidResourceException("Invalid session from employee.");
             var userId = session.UserId;
