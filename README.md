@@ -49,7 +49,9 @@ Además, se recomienda implementar una sólida estrategia de pruebas y revisión
 En resumen, este analisis de software ha proporcionado una hoja de ruta clara para la mejora continua de PharmaGo y la entrega de un producto más sólido y eficiente en las siguientes iteraciones.
 
 ## Entrega 2
+
 ### Informe de avance
+
 Para esta entrega, el equipo se centró en la resolución de algunos de los bugs identificados para la entrega 1, y en la automatización de parte del pipeline de desarrollo.
 
 Los bugs fueron seleccionados tomando en consideración la clasificación que le dimos en cuanto a prioridad y severidad, eligiendo aquellos que tuvieran las clasficiaciones más altas. El desarrollo y diseño fue llevado a cabo utilizando TDD. De esta manera, nos aseguramos tener un diseño simple y código testeable, ampliando también la base fundamental de tests unitarios.
@@ -64,5 +66,6 @@ En esta entrega decidimos cambiar el tablero y pasar a utilizar un tablero suste
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%202/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
 - [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
 - [Evidencia de reparación de bugs con TDD](./documentos/Entrega%202/Evidencia%20de%20reparaci%C3%B3n%20de%20bugs%20con%20TDD.pdf)
+- [Configuración del pipeline y si vínculo con el tablero](./documentos/Entrega%202/Configuracion%20pipeline.md)
 
 ### Conclusiones del equipo
