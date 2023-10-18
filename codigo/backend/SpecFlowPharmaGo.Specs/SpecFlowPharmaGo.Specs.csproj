@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
+    <PackageReference Include="Moq" Version="4.18.2" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
     <PackageReference Include="SpecFlow.xUnit" Version="3.9.40" />
     <PackageReference Include="xunit" Version="2.4.1" />
@@ -21,7 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PharmaGo.BusinessLogic\PharmaGo.BusinessLogic.csproj" />
     <ProjectReference Include="..\PharmaGo.Domain\PharmaGo.Domain.csproj" />
+    <ProjectReference Include="..\PharmaGo.IBusinessLogic\PharmaGo.IBusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

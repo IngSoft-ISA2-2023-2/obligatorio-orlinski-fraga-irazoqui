@@ -1,5 +1,9 @@
+using PharmaGo.BusinessLogic;
 using PharmaGo.Domain.Entities;
 using PharmaGo.Exceptions;
+using PharmaGo.IBusinessLogic;
+using PharmaGo.IDataAccess;
+using Moq;
 
 namespace SpecFlowPharmaGo.Specs.StepDefinitions
 {
@@ -8,7 +12,13 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
     {
         private Product _product = new Product();
         private bool _isProductCreated;
-        private Pharmacy _pharmacy = new Pharmacy();
+        private Pharmacy _pharmacy = new Pharmacy() { Id = 1, Name = "pharmacy", Address = "address", Users = new List<User>() };
+        private Mock<IRepository<Product>> _productRepository;
+        private Mock<IRepository<Pharmacy>> _pharmacyRepository;
+        private Mock<IRepository<Session>> _sessionRepository;
+        private Mock<IRepository<User>> _userRepository;
+        private IProductManager _productManager;
+        private string _mockToken = "c80da9ed-1b41-4768-8e34-b728cae25d2f";
 
         #region Scenario: Create new product successfully
         [Given("The product code is (.*)")]
@@ -63,16 +73,37 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [Then("The product is created shoud be (.*)")]
         public void ThenTheProductIsCreatedSuccessfully(string isCreated)
         {
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>();
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager =  new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
             if (bool.TryParse(isCreated, out bool parsedIsCreated))
             {
-                if (parsedIsCreated)
+                _productManager.Create(_product, _mockToken);
+                try
                 {
-                    Assert.True(_isProductCreated);
+                    if (parsedIsCreated)
+                    {
+                        Assert.True(_isProductCreated);
+                    }
+                    else
+                    {
+                        Assert.False(_isProductCreated);
+                    }
                 }
-                else
+                catch (InvalidResourceException)
                 {
-                    Assert.False(_isProductCreated);
+                    if (!parsedIsCreated)
+                    {
+                        Assert.True(_isProductCreated);
+                    }
+                    else
+                    {
+                        Assert.False(_isProductCreated);
+                    }
                 }
+                
             }
             
         }
