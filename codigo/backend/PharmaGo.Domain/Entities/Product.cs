@@ -15,27 +15,17 @@ namespace PharmaGo.Domain.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
+        public Pharmacy? Pharmacy { get; set; }
 
         public void ValidOrFail()
         {
-            if (string.IsNullOrEmpty(Code) || Code.Length != 5 || IsDigitsOnly(Code) ||
+            if (string.IsNullOrEmpty(Code) || Code.Length != 5 || Code.All(char.IsDigit) ||
                 string.IsNullOrEmpty(Name) || IsAlphanumeric(Name, 30) ||
                 string.IsNullOrEmpty(Description) || IsAlphanumeric(Description, 70) ||
-                Price <= 0)
+                Price <= 0 || Pharmacy == null)
             {
                 throw new InvalidResourceException("The Product is not correctly created.");
             }
-        }
-
-        private bool IsDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                    return false;
-            }
-
-            return true;
         }
 
         private bool IsAlphanumeric(string str, int maxLength)

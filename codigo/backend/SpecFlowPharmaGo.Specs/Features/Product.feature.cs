@@ -83,17 +83,13 @@ namespace SpecFlowPharmaGo.Specs.Features
         [Xunit.SkippableTheoryAttribute(DisplayName="Create new product successfully")]
         [Xunit.TraitAttribute("FeatureTitle", "Product")]
         [Xunit.TraitAttribute("Description", "Create new product successfully")]
-        [Xunit.TraitAttribute("Category", "mytag")]
         [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "true", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "Lorem ipsum dolor sit amet co.", "Dale sabor a tu vida", "80", "true", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada vulp.", "80", "true", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80.50", "true", new string[0])]
         public virtual void CreateNewProductSuccessfully(string code, string name, string description, string price, string isCreated, string[] exampleTags)
         {
-            string[] @__tags = new string[] {
-                    "mytag"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("code", code);
             argumentsOfScenario.Add("name", name);
@@ -101,7 +97,7 @@ namespace SpecFlowPharmaGo.Specs.Features
             argumentsOfScenario.Add("price", price);
             argumentsOfScenario.Add("isCreated", isCreated);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create new product successfully", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 4
+#line 3
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -121,17 +117,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 5
+#line 4
  testRunner.Given(string.Format("The product code is ${0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
+#line 5
  testRunner.And(string.Format("the name is ${0}", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 7
+#line 6
  testRunner.And(string.Format("the description is ${0}", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 8
+#line 7
  testRunner.And(string.Format("the price is ${0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 8
+ testRunner.And("a certain pharmacy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
  testRunner.When("I Click the Create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -144,6 +143,83 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 12
  testRunner.And("Added to the database", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="Error creating new product")]
+        [Xunit.TraitAttribute("FeatureTitle", "Product")]
+        [Xunit.TraitAttribute("Description", "Error creating new product")]
+        [Xunit.InlineDataAttribute("2", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("a", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("-5", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("123456", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("@", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("", "coca", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "Lorem ipsum dolor sit amet con.", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "@$&", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "", "Dale sabor a tu vida", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Lorem ipsum dolor sit amet consectetur adipiscing elit accumsan libero.", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "\"$@", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "", "80", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "-5", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "asd", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "@$%", "false", new string[0])]
+        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "", "false", new string[0])]
+        public virtual void ErrorCreatingNewProduct(string code, string name, string description, string price, string isCreated, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("code", code);
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("description", description);
+            argumentsOfScenario.Add("price", price);
+            argumentsOfScenario.Add("isCreated", isCreated);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Error creating new product", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 21
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 22
+ testRunner.Given(string.Format("The product code is ${0}", code), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 23
+ testRunner.And(string.Format("the name is ${0}", name), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 24
+ testRunner.And(string.Format("the description is ${0}", description), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 25
+ testRunner.And(string.Format("the price is ${0}", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 26
+ testRunner.And("a certain pharmacy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 27
+ testRunner.When("I Click the Create button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 28
+ testRunner.Then(string.Format("The product is created shoud be ${0}", isCreated), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 29
+ testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
