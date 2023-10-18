@@ -8,6 +8,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
     {
         private Product _product = new Product();
         private bool _isProductCreated;
+        private Pharmacy _pharmacy = new Pharmacy();
 
         #region Scenario: Create new product successfully
         [Given("The product code is (.*)")]
@@ -35,6 +36,12 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             {
                 _product.Price = parsedPrice;
             }
+        }
+
+        [Given("a certain pharmacy")]
+        public void GivenAValidPharmacy()
+        {
+            _product.Pharmacy = _pharmacy;
         }
 
         [When("I Click the Create button")]
