@@ -15,6 +15,8 @@ namespace PharmaGo.Domain.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
+        public bool Deleted { get; set; }
+        public int Stock { get; set; } = 0;
         public Pharmacy? Pharmacy { get; set; }
 
         public void ValidOrFail()
