@@ -39,18 +39,20 @@ namespace PharmaGo.BusinessLogic
             {
                 throw new ResourceNotFoundException("Please create a product before inserting it.");
             }
-            product.ValidOrFail();
 
             var guidToken = new Guid(token);
             Session session = _sessionRepository.GetOneByExpression(s => s.Token == guidToken);
             var userId = session.UserId;
             User user = _userRepository.GetOneDetailByExpression(u => u.Id == userId);
 
+
             Pharmacy pharmacyOfProduct = _pharmacyRepository.GetOneByExpression(p => p.Name == user.Pharmacy.Name);
             if (pharmacyOfProduct == null)
             {
                 throw new ResourceNotFoundException("The pharmacy of the product does not exist.");
             }
+            product.Pharmacy = pharmacyOfProduct;
+            product.ValidOrFail();
 
             if (_productRepository.Exists(p => p.Code == product.Code && p.Pharmacy.Name == pharmacyOfProduct.Name))
             {

@@ -21,19 +21,66 @@ namespace PharmaGo.Domain.Entities
 
         public void ValidOrFail()
         {
-            if (string.IsNullOrEmpty(Code) || Code.Length != 5 || Code.All(char.IsDigit) ||
-                string.IsNullOrEmpty(Name) || IsAlphanumeric(Name, 30) ||
-                string.IsNullOrEmpty(Description) || IsAlphanumeric(Description, 70) ||
-                Price <= 0 || Pharmacy == null)
+            if (string.IsNullOrEmpty(Code))
             {
                 throw new InvalidResourceException("The Product is not correctly created.");
             }
+            if (Code.Length != 5)
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (!IsDigitsOnly(Code))
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (string.IsNullOrEmpty(Name))
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (!IsAlphanumeric(Name, 30))
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (string.IsNullOrEmpty(Description))
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (!IsAlphanumeric(Description, 70))
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (Price <= 0)
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            if (Pharmacy == null)
+            {
+                throw new InvalidResourceException("The Product is not correctly created.");
+            }
+            //if (string.IsNullOrEmpty(Code) || Code.Length != 5 || Code.All(char.IsDigit) ||
+            //    string.IsNullOrEmpty(Name) || IsAlphanumeric(Name, 30) ||
+            //    string.IsNullOrEmpty(Description) || IsAlphanumeric(Description, 70) ||
+            //    Price <= 0 || Pharmacy == null)
+            //{
+            //    throw new InvalidResourceException("The Product is not correctly created.");
+            //}
         }
 
         private bool IsAlphanumeric(string str, int maxLength)
         {
             string pattern = $@"^[A-Za-z][A-Za-z0-9.-]{{1,{maxLength}}}\z(?<=[A-Za-z0-9])";
             return new Regex(pattern).IsMatch(str);
+        }
+
+        private bool IsDigitsOnly(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
         }
     }
 }
