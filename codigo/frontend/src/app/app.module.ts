@@ -54,6 +54,7 @@ import { CreatePharmacyComponent } from './pages/admin/create-pharmacy/create-ph
 import { EmployeeComponent } from './pages/employee/employee/employee.component';
 import { PurchaseStatusComponent } from './pages/employee/purchase-status/purchase-status.component';
 import { CreateDrugComponent } from './pages/employee/create-drug/create-drug.component';
+import { CreateProductComponent } from './pages/employee/create-product/create-product.component';
 import { DeleteDrugComponent } from './pages/employee/delete-drug/delete-drug.component';
 import { ExportDrugsComponent } from './pages/employee/export-drugs/export-drugs.component';
 
@@ -62,8 +63,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 // Custom components
-import {CustomFooterComponent} from './custom/custom-footer/custom-footer.component';
-import {CustomHeaderComponent} from './custom/custom-header/custom-header.component';
+import { CustomFooterComponent } from './custom/custom-footer/custom-footer.component';
+import { CustomHeaderComponent } from './custom/custom-header/custom-header.component';
 import { StorageManager } from './utils/storage-manager';
 import { CommonService } from './services/CommonService';
 import { CustomToastComponent } from './custom/custom-toast/custom-toast.component';
@@ -110,13 +111,14 @@ import { StockRequestOwnerComponent } from './pages/owner/stock-request-owner/st
     DeleteDrugComponent,
     StockRequestComponent,
     CreateRequestComponent,
+    CreateProductComponent,
     ExportDrugsComponent,
     // Owner
     OwnerComponent,
     PurchaseByDateComponent,
     InvitationComponent,
     StockRequestOwnerComponent,
-    
+
 
   ],
   imports: [
