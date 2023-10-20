@@ -9,7 +9,6 @@ import { StorageManager } from '../utils/storage-manager';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-
   private url = environment.apiUrl + '/api/product';
 
   httpOptions = {
@@ -40,6 +39,11 @@ export class ProductService {
         catchError(this.handleError<Product>('Create Product'))
       );
   }
+
+  getProducts() {
+    throw new Error('Method not implemented.');
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
