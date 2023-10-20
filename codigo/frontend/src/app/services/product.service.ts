@@ -41,7 +41,11 @@ export class ProductService {
   }
 
   getProducts() {
-    throw new Error('Method not implemented.');
+    return this.http.get<Product[]>(this.url, {headers: this.getHttpHeaders() })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Product[]>('Get Products', []))
+      );
   }
 
   /**
