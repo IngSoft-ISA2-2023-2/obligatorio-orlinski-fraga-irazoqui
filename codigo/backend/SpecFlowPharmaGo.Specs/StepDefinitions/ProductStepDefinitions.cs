@@ -42,7 +42,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [Given("the price is (.*)")]
         public void GivenAValidProductPrice(string price)
         {
-            if (float.TryParse(price, out float parsedPrice))
+            if (decimal.TryParse(price, out decimal parsedPrice))
             {
                 _product.Price = parsedPrice;
             }
