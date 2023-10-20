@@ -49,7 +49,9 @@ export class DeleteProductComponent implements OnInit {
     }
   }
   
+  
   saveModal(event: any): void {
+    /*
     if (event) {
       this.productService.deleteProduct(this.targetItem.id).subscribe((p: any) => {
         if (p) {
@@ -62,7 +64,8 @@ export class DeleteProductComponent implements OnInit {
           );
         }
       });
-    }
+    }*/
   }
+  
   
 }

@@ -3,7 +3,7 @@
   <c-row [ngStyle]="{ width: '100%' }">
     <c-col>
       <c-row class="g-0 customAlign">
-        <h3>Delete Drug</h3>
+        <h3>Delete Product</h3>
         <table 
           *ngIf="products.length > 0"
           cTable
@@ -32,7 +32,7 @@
                 <button
                   title="Delete"
                   class="btn btn-outline-danger"
-                  (click)="deleteProduct(product.id)">
+                  (click)="deleteProduct(product.code)">
                   <svg cIcon [cIcon]="icons.cilX"></svg>
                 </button>
               </td>
