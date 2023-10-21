@@ -64,5 +64,13 @@ namespace PharmaGo.BusinessLogic
             _productRepository.Save();
             return product;
         }
+
+        public void Delete(Product productToDelete, string token) 
+        {
+            Product product = _productRepository.GetOneDetailByExpression(p => 
+                String.Equals(productToDelete.Code, p.Code)
+                && productToDelete.Pharmacy.Id == p.Pharmacy.Id);
+            this._productRepository.DeleteOne(product);
+        }
     }
 }

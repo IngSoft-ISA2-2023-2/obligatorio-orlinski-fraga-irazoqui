@@ -32,5 +32,14 @@ namespace PharmaGo.DataAccess.Repositories
         public override IEnumerable<Product> GetAllByExpression(Expression<Func<Product, bool>> expression) {
             return _context.Set<Product>().Include(x => x.Pharmacy).Where(expression);
         }
+
+        public override void DeleteOne(Product product)
+        {
+            _context.Entry(product).State = EntityState.Modified;
+            product.Deleted = true;
+            _context.Update(product);
+            _context.SaveChanges();
+        }
+
     }
 }
