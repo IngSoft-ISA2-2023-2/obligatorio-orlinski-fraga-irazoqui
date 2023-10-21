@@ -70,6 +70,8 @@ namespace PharmaGo.BusinessLogic
             Product product = _productRepository.GetOneDetailByExpression(p => 
                 String.Equals(productToDelete.Code, p.Code)
                 && productToDelete.Pharmacy.Id == p.Pharmacy.Id);
+            if (product is null) 
+                throw new ResourceNotFoundException("The product does not exist");
             this._productRepository.DeleteOne(product);
         }
     }

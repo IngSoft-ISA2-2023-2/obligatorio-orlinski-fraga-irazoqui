@@ -191,7 +191,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
             _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
 
-            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns((Product)null);
 
             Assert.Throws<ResourceNotFoundException>(() => _productManager.Delete(productToDelete, _mockToken));
         }

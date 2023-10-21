@@ -50,9 +50,18 @@ Scenario: Delete a product succesfully
 	Given The product code is $<code>
 	When I click the delete button
 	Then the product should be deleted from the database
+ Examples:  
+    | code    |
+    | AWXS	  | 
 
 Scenario: Invalid Code deleting a product
 	Given The product code is $<code>
 	When I click the delete button
 	Then The product is not deleted
 	And an error message is returned to the employee
+ Examples:  
+    | code    |
+    | 12345	  | 
+	| 123456   | 
+	| 123457   | 
+	| 123458   |
