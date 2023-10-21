@@ -45,3 +45,8 @@ Scenario: Error creating new product
 	| 12345 | coca   | Dale sabor a tu vida          | asd   | false     |
 	| 12345 | coca   | Dale sabor a tu vida          | @$%   | false     |
 	| 12345 | coca   | Dale sabor a tu vida          |		 | false     |
+
+Scenario: Delete a product succesfully
+	Given The product code is $<code>
+	When I click the delete button
+	Then the product should be deleted from the database

@@ -4,6 +4,7 @@ using PharmaGo.Exceptions;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.IDataAccess;
 using Moq;
+using System.Linq.Expressions;
 
 namespace SpecFlowPharmaGo.Specs.StepDefinitions
 {
@@ -118,6 +119,44 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         public void ThenAddedToTheDatabase()
         {
             // No se necesita una base de datos real, así que no se realiza ninguna acción aquí
+        }
+        #endregion
+
+        #region Delete a product
+        private Product productTest = new Product()
+        { 
+            Code = "AWS", 
+            Name = "TestName", 
+            Deleted = false, 
+            Description = "Test drug description", 
+            Id = 1, 
+            Pharmacy = new Pharmacy(), 
+            Price = 1000, 
+            Stock = 100   
+        };
+
+        [When(@"I click the delete button")]
+        public void WhenIClickTheDeleteButton()
+        {
+            _product = productTest;
+        }
+
+        [Then(@"the product should be deleted from the database")]
+        public void ThenTheProductShouldBeDeletedFromTheDatabase()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+            _productRepository.Setup(p => p.DeleteOne(It.IsAny<Product>()));
+
+            _productManager.Delete(productToDelete, _mockToken);
+
+            _productRepository.VerifyAll();
         }
         #endregion
 
