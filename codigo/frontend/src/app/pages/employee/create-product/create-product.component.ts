@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { cilBarcode, cilPencil, cilPaint, cilAlignCenter, cilDollar, cilLibrary, cilLoop1, cilTask, cilShortText } from '@coreui/icons';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Pharmacy } from '../../../interfaces/pharmacy';
-// import { ProductService } from '../../../services/product.service';
-import { ProductFakeService } from '../../../services/product-fake.service';
+import { ProductService } from '../../../services/product.service';
+// import { ProductFakeService } from '../../../services/product-fake.service';
 import { ProductRequest } from '../../../interfaces/product';
 import { CommonService } from '../../../services/CommonService';
 
@@ -23,8 +23,8 @@ export class CreateProductComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    // private productService: ProductService,
-    private productService: ProductFakeService,
+    private productService: ProductService,
+    // private productService: ProductFakeService,
     private fb: FormBuilder
   ) {
 
@@ -72,16 +72,6 @@ export class CreateProductComponent implements OnInit {
         );
       }
     });
-    // this.productService.createProduct(productRequest).subscribe((product) => {
-    //   this.form.reset();
-    //   if (product) {
-    //     this.commonService.updateToastData(
-    //       `Success creating "${product.code} - ${product.name}"`,
-    //       'success',
-    //       'Product created.'
-    //     );
-    //   }
-    // });
 
   }
 }
