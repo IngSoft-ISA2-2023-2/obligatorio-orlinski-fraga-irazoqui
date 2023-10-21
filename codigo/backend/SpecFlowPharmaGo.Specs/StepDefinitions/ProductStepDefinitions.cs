@@ -158,6 +158,44 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
 
             _productRepository.VerifyAll();
         }
+
+        [Then(@"The product is not deleted")]
+        public void ThenTheProductIsNotDeleted()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+
+            try
+            {
+                _productManager.Delete(productToDelete, _mockToken);
+            } catch (Exception e)
+            {
+                _productRepository.VerifyAll();
+            }
+
+        }
+
+        [Then(@"an error message is returned to the employee")]
+        public void ThenAnErrorMessageIsReturnedToTheEmployee()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+
+            Assert.Throws<ResourceNotFoundException>(() => _productManager.Delete(productToDelete, _mockToken));
+        }
+
         #endregion
 
     }

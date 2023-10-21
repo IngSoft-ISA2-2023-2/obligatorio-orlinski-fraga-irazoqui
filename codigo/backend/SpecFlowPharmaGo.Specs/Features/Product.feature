@@ -50,3 +50,9 @@ Scenario: Delete a product succesfully
 	Given The product code is $<code>
 	When I click the delete button
 	Then the product should be deleted from the database
+
+Scenario: Invalid Code deleting a product
+	Given The product code is $<code>
+	When I click the delete button
+	Then The product is not deleted
+	And an error message is returned to the employee
