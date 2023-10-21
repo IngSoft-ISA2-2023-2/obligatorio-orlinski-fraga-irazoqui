@@ -68,7 +68,8 @@ namespace PharmaGo.Domain.Entities
 
         private bool IsAlphanumeric(string str, int maxLength)
         {
-            string pattern = $@"^[A-Za-z][A-Za-z0-9.-]{{1,{maxLength}}}\z(?<=[A-Za-z0-9])";
+            //string pattern = $@"^[\p{{L}}\p{{N}}.-\s]{{1,{maxLength}}}\z(?<=[\p{{L}}\p{{N}}])";
+            string pattern = $@"^[a-zA-Z0-9 áéíóú]{{1,{maxLength}}}$";
             return new Regex(pattern).IsMatch(str);
         }
 
