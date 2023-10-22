@@ -5,6 +5,8 @@ using PharmaGo.IBusinessLogic;
 using PharmaGo.IDataAccess;
 using Moq;
 using System.Linq.Expressions;
+using PharmaGo.WebApi.Controllers;
+using Microsoft.AspNetCore.Http;
 
 namespace SpecFlowPharmaGo.Specs.StepDefinitions
 {
@@ -209,6 +211,36 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         {
             //aplica solo a llamadas http
         }
+        #endregion
+
+        #region Get all drugs
+        [When(@"I enter the product page")]
+        public void WhenIEnterTheProductPage()
+        {
+        }
+
+        [Then(@"All products are shown to me")]
+        public void ThenAllProductsAreShownToMe()
+        {
+            // no lo logre
+            /*
+            Product _product1 = new Product();
+            Product _product2 = new Product();
+            IEnumerable<Product> products = new List<Product>() { _product1, _product2 };
+
+            Mock<IProductManager> _productManagerMock = new Mock<IProductManager>();
+            ProductController _productController = new ProductController(_productManagerMock.Object);
+            _productManagerMock.Setup(p => p.GetAll(It.IsAny<Expression<Func<Product, bool>>>())).Returns(products);
+
+            var httpContextAccessor = new Mock<HttpContext>();
+            var defaultContext = new DefaultHttpContext();
+
+            defaultContext.HttpContext.Items.Add("Authorization", "aa");
+
+            _productController.GetAll();
+            */
+        }
+
         #endregion
         #endregion
 

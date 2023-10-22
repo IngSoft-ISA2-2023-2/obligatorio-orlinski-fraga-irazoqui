@@ -2,6 +2,7 @@
 using PharmaGo.Exceptions;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.IDataAccess;
+using System.Linq.Expressions;
 
 namespace PharmaGo.BusinessLogic
 {
@@ -73,6 +74,11 @@ namespace PharmaGo.BusinessLogic
             if (product is null) 
                 throw new ResourceNotFoundException("The product does not exist");
             this._productRepository.DeleteOne(product);
+        }
+
+        public IEnumerable<Product> GetAll(Expression<Func<Product, bool>> criteria)
+        {
+            return this._productRepository.GetAllByExpression(criteria);
         }
     }
 }

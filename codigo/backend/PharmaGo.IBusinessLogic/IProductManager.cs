@@ -1,4 +1,5 @@
 ﻿using PharmaGo.Domain.Entities;
+using System.Linq.Expressions;
 
 namespace PharmaGo.IBusinessLogic
 {
@@ -6,5 +7,6 @@ namespace PharmaGo.IBusinessLogic
     {
         Product Create(Product product, string token);
         void Delete(Product productToDelete, string mockToken);
+        IEnumerable<Product> GetAll(Expression<Func<Product, bool>> criteria);
     }
 }

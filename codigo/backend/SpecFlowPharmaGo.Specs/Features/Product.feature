@@ -77,3 +77,7 @@ Scenario: A non-employee deleting a product
 	| 123456   | 
 	| 123457   | 
 	| 123458   |
+
+Scenario: Get all drugs
+	When I enter the product page
+	Then All products are shown to me
