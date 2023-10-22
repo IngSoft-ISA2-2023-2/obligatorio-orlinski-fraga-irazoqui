@@ -24,7 +24,6 @@ export class DeleteProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    this.products = []
   }
 
   closeModal(): void {
@@ -36,6 +35,7 @@ export class DeleteProductComponent implements OnInit {
   }
 
   deleteProduct(code: string): void {
+    console.log(this.products)
     for (let product of this.products) {
       if (product.code === code) {
         this.targetItem = product;
@@ -51,9 +51,8 @@ export class DeleteProductComponent implements OnInit {
   
   
   saveModal(event: any): void {
-    /*
     if (event) {
-      this.productService.deleteProduct(this.targetItem.id).subscribe((p: any) => {
+      this.productService.deleteProduct(this.targetItem).subscribe((p: any) => {
         if (p) {
           this.visible = false;
           this.getProducts();
@@ -64,7 +63,7 @@ export class DeleteProductComponent implements OnInit {
           );
         }
       });
-    }*/
+    }
   }
   
   

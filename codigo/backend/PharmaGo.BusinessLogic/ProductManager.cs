@@ -68,9 +68,10 @@ namespace PharmaGo.BusinessLogic
 
         public void Delete(Product productToDelete, string token) 
         {
+            Pharmacy pharmacy = _pharmacyRepository.GetOneDetailByExpression(p => String.Equals(p.Name,productToDelete.Pharmacy.Name));
             Product product = _productRepository.GetOneDetailByExpression(p => 
                 String.Equals(productToDelete.Code, p.Code)
-                && productToDelete.Pharmacy.Id == p.Pharmacy.Id);
+                && pharmacy.Id == p.Pharmacy.Id);
             if (product is null) 
                 throw new ResourceNotFoundException("The product does not exist");
             this._productRepository.DeleteOne(product);
@@ -78,7 +79,7 @@ namespace PharmaGo.BusinessLogic
 
         public IEnumerable<Product> GetAll(Expression<Func<Product, bool>> criteria)
         {
-            return this._productRepository.GetAllByExpression(criteria);
+            return this._productRepository.GetAllByExpression(criteria).Where(p => p.Deleted == false);
         }
     }
 }

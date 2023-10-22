@@ -48,6 +48,26 @@ export class ProductService {
       );
   }
 
+  deleteProduct(product: any): Observable<Product>  {
+    console.log("product service DELETE")
+    console.log(product)
+    return this.http.request<Product>('DELETE', this.url, 
+    { 
+      headers: this.getHttpHeaders(),
+      body: {
+        Code: product.code,
+        Name: product.name,
+        Description: product.description,
+        Price: product.price,
+        PharmacyName: product.pharmacy.name,
+      }
+    })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Product>('Delete Product'))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
