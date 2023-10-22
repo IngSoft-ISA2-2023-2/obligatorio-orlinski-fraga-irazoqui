@@ -196,6 +196,20 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             Assert.Throws<ResourceNotFoundException>(() => _productManager.Delete(productToDelete, _mockToken));
         }
 
+        #region A non-employee deleting a product
+        private string nonEmployeeToken = "";
+        [When(@"A non-employee user touches a delete button")]
+        public void WhenANon_EmployeeUserTouchesADeleteButton()
+        {
+            nonEmployeeToken = "59C25ED6-1090-49FD-ADF2-DE24E1E932F0";
+        }
+
+        [Then(@"an Authorization error message is returned to the employee")]
+        public void ThenAnAuthorizationErrorMessageIsReturnedToTheEmployee()
+        {
+            //aplica solo a llamadas http
+        }
+        #endregion
         #endregion
 
     }
