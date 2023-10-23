@@ -20,6 +20,6 @@ Scenario: Add product to cart with more quantity than stock
 	And an error message appears on the bottom of the screen
 
 Scenario: buy product succesfully
-	Given that I added a product and it's quantity to my cart
+	Given that I added a product and its quantity to my cart
 	When I click the button to proceed to checkout
 	Then the subtotal of drugs and products are combined
