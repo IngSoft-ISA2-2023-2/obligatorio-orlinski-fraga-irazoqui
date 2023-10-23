@@ -109,6 +109,7 @@ namespace PharmaGo.BusinessLogic
                     productDetail.Price = product.Price;
                     productDetail.Product = product;
                     productDetail.Status = PENDING;
+                    product.Stock -= productDetail.Quantity;
                 }
             }
             purchase.TotalAmount = totalDrugs + totalProducts;
