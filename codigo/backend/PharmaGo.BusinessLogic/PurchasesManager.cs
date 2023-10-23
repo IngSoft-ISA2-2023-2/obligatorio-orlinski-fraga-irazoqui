@@ -99,7 +99,7 @@ namespace PharmaGo.BusinessLogic
                     var product =  this._productRepository.GetAllByExpression(x=> 
                         x.Code == productCode 
                         && x.Deleted == false 
-                        && x.Pharmacy.Id == productDetail.Product.Pharmacy.Id).FirstOrDefault();
+                        && x.Pharmacy.Id == productDetail.Pharmacy.Id).FirstOrDefault();
 
                     if (product is null)
                         throw new ResourceNotFoundException($"Product {productCode} not found in Pharmacy {pharmacy.Name}");
