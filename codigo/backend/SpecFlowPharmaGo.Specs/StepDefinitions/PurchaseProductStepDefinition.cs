@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PharmaGo.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,21 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
     [Binding]
     public class PurchaseProductStepDefinition
     {
+        private Product product;
         [Given(@"that I can see a product's details")]
         public void GivenThatICanSeeAProductsDetails()
         {
-            throw new PendingStepException();
+            this.product = new Product()
+            {
+                Name = "product Name",
+                Code = "CODE",
+                Deleted = false,
+                Description = "description",
+                Id = 1,
+                Pharmacy = new Pharmacy(),
+                Price = 1000,
+                Stock = 100
+            };
         }
 
         [When(@"I click the add to cart button")]
