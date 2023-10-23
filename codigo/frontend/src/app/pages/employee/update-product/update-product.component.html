@@ -4,11 +4,7 @@
     <c-col>
       <c-row class="g-0 customAlign">
         <h3>Update product</h3>
-        <table 
-          *ngIf="products.length > 0"
-          cTable
-          hover
-          [responsive]="true">
+        <table *ngIf="products.length > 0" cTable hover [responsive]="true">
           <thead>
             <tr>
               <th scope="col">Code</th>
@@ -27,12 +23,10 @@
               <td>{{ product.description }}</td>
               <td>{{ product.pharmacy.name }}</td>
               <td>
-                <button
-                  title="Update"
-                  class="btn btn-outline-danger"
-                  !--(click)="deleteDrug(drug.id)">
+                <a class="font-weight-bold font-xs btn-block text-muted"
+                  routerLink="/employee/update-product/{{ product.code}}">
                   <svg cIcon [cIcon]="icons.cilPencil"></svg>
-                </button>
+                </a>
               </td>
             </tr>
           </tbody>
