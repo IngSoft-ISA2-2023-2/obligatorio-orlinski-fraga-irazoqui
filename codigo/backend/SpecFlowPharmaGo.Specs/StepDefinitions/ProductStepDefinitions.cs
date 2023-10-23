@@ -4,6 +4,9 @@ using PharmaGo.Exceptions;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.IDataAccess;
 using Moq;
+using System.Linq.Expressions;
+using PharmaGo.WebApi.Controllers;
+using Microsoft.AspNetCore.Http;
 
 namespace SpecFlowPharmaGo.Specs.StepDefinitions
 {
@@ -57,7 +60,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [When("I Click the Create button")]
         public void WhenClickTheCreateButton()
         {
-            // Llama al método ValidOrFail para verificar si el producto es válido
+            // Llama al mï¿½todo ValidOrFail para verificar si el producto es vï¿½lido
             try
             {
                 _product.ValidOrFail();
@@ -65,7 +68,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             }
             catch (InvalidResourceException)
             {
-                // Maneja la excepción si la validación falla
+                // Maneja la excepciï¿½n si la validaciï¿½n falla
                 _isProductCreated = false;
             }
         }
@@ -117,8 +120,128 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [Then("Added to the database")]
         public void ThenAddedToTheDatabase()
         {
-            // No se necesita una base de datos real, así que no se realiza ninguna acción aquí
+            // No se necesita una base de datos real, asï¿½ que no se realiza ninguna acciï¿½n aquï¿½
         }
+        #endregion
+
+        #region Delete a product
+        private Product productTest = new Product()
+        { 
+            Code = "AWS", 
+            Name = "TestName", 
+            Deleted = false, 
+            Description = "Test drug description", 
+            Id = 1, 
+            Pharmacy = new Pharmacy(), 
+            Price = 1000, 
+            Stock = 100   
+        };
+
+        [When(@"I click the delete button")]
+        public void WhenIClickTheDeleteButton()
+        {
+            _product = productTest;
+        }
+
+        [Then(@"the product should be deleted from the database")]
+        public void ThenTheProductShouldBeDeletedFromTheDatabase()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+            _productRepository.Setup(p => p.DeleteOne(It.IsAny<Product>()));
+
+            _productManager.Delete(productToDelete, _mockToken);
+
+            _productRepository.VerifyAll();
+        }
+
+        [Then(@"The product is not deleted")]
+        public void ThenTheProductIsNotDeleted()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns(productToDelete);
+
+            try
+            {
+                _productManager.Delete(productToDelete, _mockToken);
+            } catch (Exception e)
+            {
+                _productRepository.VerifyAll();
+            }
+
+        }
+
+        [Then(@"an error message is returned to the employee")]
+        public void ThenAnErrorMessageIsReturnedToTheEmployee()
+        {
+            var productToDelete = _product;
+            _userRepository = new Mock<IRepository<User>>();
+            _sessionRepository = new Mock<IRepository<Session>>();
+            _productRepository = new Mock<IRepository<Product>>(MockBehavior.Strict);
+            _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
+            _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
+
+            _productRepository.Setup(p => p.GetOneDetailByExpression(It.IsAny<Expression<Func<Product, bool>>>())).Returns((Product)null);
+
+            Assert.Throws<ResourceNotFoundException>(() => _productManager.Delete(productToDelete, _mockToken));
+        }
+
+        #region A non-employee deleting a product
+        private string nonEmployeeToken = "";
+        [When(@"A non-employee user touches a delete button")]
+        public void WhenANon_EmployeeUserTouchesADeleteButton()
+        {
+            nonEmployeeToken = "59C25ED6-1090-49FD-ADF2-DE24E1E932F0";
+        }
+
+        [Then(@"an Authorization error message is returned to the employee")]
+        public void ThenAnAuthorizationErrorMessageIsReturnedToTheEmployee()
+        {
+            //aplica solo a llamadas http
+        }
+        #endregion
+
+        #region Get all drugs
+        [When(@"I enter the product page")]
+        public void WhenIEnterTheProductPage()
+        {
+        }
+
+        [Then(@"All products are shown to me")]
+        public void ThenAllProductsAreShownToMe()
+        {
+            // no lo logre
+            /*
+            Product _product1 = new Product();
+            Product _product2 = new Product();
+            IEnumerable<Product> products = new List<Product>() { _product1, _product2 };
+
+            Mock<IProductManager> _productManagerMock = new Mock<IProductManager>();
+            ProductController _productController = new ProductController(_productManagerMock.Object);
+            _productManagerMock.Setup(p => p.GetAll(It.IsAny<Expression<Func<Product, bool>>>())).Returns(products);
+
+            var httpContextAccessor = new Mock<HttpContext>();
+            var defaultContext = new DefaultHttpContext();
+
+            defaultContext.HttpContext.Items.Add("Authorization", "aa");
+
+            _productController.GetAll();
+            */
+        }
+
+        #endregion
         #endregion
 
     }

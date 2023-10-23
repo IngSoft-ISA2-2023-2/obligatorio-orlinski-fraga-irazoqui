@@ -9,7 +9,6 @@ import { StorageManager } from '../utils/storage-manager';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-
   private url = environment.apiUrl + '/api/product';
 
   httpOptions = {
@@ -40,6 +39,35 @@ export class ProductService {
         catchError(this.handleError<Product>('Create Product'))
       );
   }
+
+  getProducts() {
+    return this.http.get<Product[]>(this.url, {headers: this.getHttpHeaders() })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Product[]>('Get Products', []))
+      );
+  }
+
+  deleteProduct(product: any): Observable<Product>  {
+    console.log("product service DELETE")
+    console.log(product)
+    return this.http.request<Product>('DELETE', this.url, 
+    { 
+      headers: this.getHttpHeaders(),
+      body: {
+        Code: product.code,
+        Name: product.name,
+        Description: product.description,
+        Price: product.price,
+        PharmacyName: product.pharmacy.name,
+      }
+    })
+      .pipe(
+        tap(),
+        catchError(this.handleError<Product>('Delete Product'))
+      );
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

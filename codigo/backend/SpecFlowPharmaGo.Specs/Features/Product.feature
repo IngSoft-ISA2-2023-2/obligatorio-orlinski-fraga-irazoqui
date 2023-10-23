@@ -45,3 +45,39 @@ Scenario: Error creating new product
 	| 12345 | coca   | Dale sabor a tu vida          | asd   | false     |
 	| 12345 | coca   | Dale sabor a tu vida          | @$%   | false     |
 	| 12345 | coca   | Dale sabor a tu vida          |		 | false     |
+
+Scenario: Delete a product succesfully
+	Given The product code is $<code>
+	When I click the delete button
+	Then the product should be deleted from the database
+ Examples:  
+    | code    |
+    | AWXS	  | 
+
+Scenario: Invalid Code deleting a product
+	Given The product code is $<code>
+	When I click the delete button
+	Then The product is not deleted
+	And an error message is returned to the employee
+ Examples:  
+    | code    |
+    | 12345	  | 
+	| 123456   | 
+	| 123457   | 
+	| 123458   |
+
+Scenario: A non-employee deleting a product
+	Given The product code is $<code>
+	When A non-employee user touches a delete button
+	Then The product is not deleted
+	And an Authorization error message is returned to the employee
+ Examples:  
+    | code    |
+    | 12345	  | 
+	| 123456   | 
+	| 123457   | 
+	| 123458   |
+
+Scenario: Get all drugs
+	When I enter the product page
+	Then All products are shown to me

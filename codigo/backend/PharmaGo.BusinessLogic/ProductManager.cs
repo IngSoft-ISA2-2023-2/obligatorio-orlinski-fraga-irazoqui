@@ -2,6 +2,7 @@
 using PharmaGo.Exceptions;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.IDataAccess;
+using System.Linq.Expressions;
 
 namespace PharmaGo.BusinessLogic
 {
@@ -63,6 +64,22 @@ namespace PharmaGo.BusinessLogic
             _productRepository.InsertOne(product);
             _productRepository.Save();
             return product;
+        }
+
+        public void Delete(Product productToDelete, string token) 
+        {
+            Pharmacy pharmacy = _pharmacyRepository.GetOneDetailByExpression(p => String.Equals(p.Name,productToDelete.Pharmacy.Name));
+            Product product = _productRepository.GetOneDetailByExpression(p => 
+                String.Equals(productToDelete.Code, p.Code)
+                && pharmacy.Id == p.Pharmacy.Id);
+            if (product is null) 
+                throw new ResourceNotFoundException("The product does not exist");
+            this._productRepository.DeleteOne(product);
+        }
+
+        public IEnumerable<Product> GetAll(Expression<Func<Product, bool>> criteria)
+        {
+            return this._productRepository.GetAllByExpression(criteria).Where(p => p.Deleted == false);
         }
     }
 }
