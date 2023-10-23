@@ -39,4 +39,13 @@ export class ProductFakeService {
     // Devolvemos la lista completa de productos simulada
     return of(this.productsList);
   }
+
+  getProduct(id: number): Observable<Product> {
+    return of(this.productsList[0]);
+  }
+
+  updateProduct(product: ProductRequest): Observable<ProductRequest> {
+    // Simula una respuesta exitosa
+    return of(product);
+  }
 }

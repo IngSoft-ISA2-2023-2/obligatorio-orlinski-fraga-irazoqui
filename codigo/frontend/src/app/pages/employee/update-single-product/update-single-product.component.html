@@ -11,7 +11,8 @@
                 <span cInputGroupText>
                   <svg cIcon [cIcon]="icons.cilBarcode"></svg>
                 </span>
-                <input autoComplete="code" cFormControl placeholder="Code" formControlName="code" />
+                <input class="inputDisable" autoComplete="code" cFormControl placeholder="Code"
+                  formControlName="code" />
               </c-input-group>
               <c-input-group class="mb-3">
                 <span cInputGroupText>
@@ -24,6 +25,12 @@
                   <svg cIcon [cIcon]="icons.cilDollar"></svg>
                 </span>
                 <input autoComplete="price" cFormControl placeholder="Price" type="input" formControlName="price" />
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <span cInputGroupText>
+                  <svg cIcon [cIcon]="icons.cilDollar"></svg>
+                </span>
+                <input autoComplete="stock" cFormControl placeholder="Stock" type="input" formControlName="stock" />
               </c-input-group>
               <c-input-group class="mb-3">
                 <span cInputGroupText>

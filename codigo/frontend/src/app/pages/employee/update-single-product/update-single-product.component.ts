@@ -43,7 +43,13 @@ export class UpdateSingleProductComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const productId = params['id'];
-      // this.productService.
+      this.productService.getProduct(productId).subscribe((product) => {
+        this.form.controls.name.setValue(product.name);
+        this.form.controls.description.setValue(product.description);
+        this.form.controls.code.setValue(product.code);
+        this.form.controls.price.setValue(product.price);
+        this.form.controls.stock.setValue(product.stock);
+      });
     });
   }
 
@@ -75,13 +81,12 @@ export class UpdateSingleProductComponent implements OnInit {
     let stock = this.stock.value ? this.stock.value : 0;
 
     let productRequest = new ProductRequest(code, name, description, price, "", stock);
-    this.productService.createProduct(productRequest).subscribe((product) => {
-      this.form.reset();
+    this.productService.updateProduct(productRequest).subscribe((product) => {
       if (product) {
         this.commonService.updateToastData(
-          `Success creating "${product.code} - ${product.name}"`,
+          `Success updating "${product.code} - ${product.name}"`,
           'success',
-          'Product created.'
+          'Product updated.'
         );
       }
     });
