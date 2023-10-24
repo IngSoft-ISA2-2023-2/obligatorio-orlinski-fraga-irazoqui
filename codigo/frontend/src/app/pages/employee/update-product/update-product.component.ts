@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { cilCheckAlt, cilPencil } from '@coreui/icons';
-//import { ProductService } from '../../../services/product.service';
-import { ProductFakeService } from '../../../services/product-fake.service';
+import { ProductService } from '../../../services/product.service';
+//import { ProductFakeService } from '../../../services/product-fake.service';
 import { Product } from '../../../interfaces/product';
 
 @Component({
@@ -18,7 +18,7 @@ export class UpdateProductComponent implements OnInit {
   modalMessage = '';
 
   constructor(
-    private productService: ProductFakeService
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class UpdateProductComponent implements OnInit {
   }
 
   getProductsByUser() {
-    this.productService.getProductsByUser().subscribe((p: any) => (this.products = p));
+    this.productService.getProducts().subscribe((p: any) => (this.products = p));
   }
 
 }

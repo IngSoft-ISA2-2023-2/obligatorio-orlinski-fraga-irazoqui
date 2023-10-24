@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { cilBarcode, cilPencil, cilPaint, cilAlignCenter, cilDollar, cilLibrary, cilLoop1, cilTask, cilShortText } from '@coreui/icons';
 import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Pharmacy } from '../../../interfaces/pharmacy';
-// import { ProductService } from '../../../services/product.service';
-import { ProductFakeService } from '../../../services/product-fake.service';
+import { ProductService } from '../../../services/product.service';
+//import { ProductFakeService } from '../../../services/product-fake.service';
 import { ProductRequest } from '../../../interfaces/product';
 import { CommonService } from '../../../services/CommonService';
 import { ActivatedRoute } from '@angular/router';
@@ -24,8 +24,7 @@ export class UpdateSingleProductComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    // private productService: ProductService,
-    private productService: ProductFakeService,
+    private productService: ProductService,
     private route: ActivatedRoute,
     private fb: FormBuilder
   ) {
