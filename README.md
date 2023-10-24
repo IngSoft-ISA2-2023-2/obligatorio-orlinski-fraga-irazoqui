@@ -71,27 +71,31 @@ En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un ta
 - [Resumen de la retrospectiva](./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf)
 
 #### Ceremonias realizadas
+
 ![Ceremonias](./imagenes/Entrega%202/Ceremonias.png)
 
 ### Conclusiones del equipo
 
 En primer lugar, el tablero sustentable demostró ser mucho más útil para el equipo en esta etapa. Ahora que tenemos las issues y tareas bien definidas, fue más importante para el equipo poder entender rápidamente en qué estado se encuentra cada tarjeta. De esta manera, si una tarjeta se encuentra en Review por ejemplo, sabemos que hay un PR esperando para ser revisado, aprobado, y mergeado. Esto logró que la comunicación del equipo sea más fluida.
 
-Trabajar con TDD nos permitió estar seguros de nuestro trabajo, ya que tenemos los tests (tanto los nuestros como aquellos realizados previamente por los autores del proyecto original) funcionando como una base para chequear los requerimientos. Pudimos lograr entonces un diseño simple con código testeable. 
+Trabajar con TDD nos permitió estar seguros de nuestro trabajo, ya que tenemos los tests (tanto los nuestros como aquellos realizados previamente por los autores del proyecto original) funcionando como una base para chequear los requerimientos. Pudimos lograr entonces un diseño simple con código testeable.
 
 En esta etapa aprendimos mucho sobre la automatización de ciertas partes del pipeline de desarrollo. Fue una buena oportunidad para investigar sobre el tema, ver qué acciones es posible utilizar, y sobre todo nos permitió acercarnos un poco más a las prácticas de entrega continua.
 
 ## Entrega 3
+
 ### Informe de avance
+
 Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades como fueron indicadas por los profesores. Sin embargo, en esta oportunidad utilizamos BDD, una nueva metodología ágil, junto con la herramienta Specflow para desarrollar los tests. Esto significó un cambio en el tablero, ya que varias columnas del tablero sustentable pasaron a ser las etapas de BDD.
+
 ### Artefactos
+
+- [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%203/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
+
 #### Ceremonias realizadas
+
 ### Conclusiones del equipo
+
 Aplicar BDD fue muy interesante ya que nos permitió desarrollar nuestra aplicación de forma ágil y con código testeable (antes lo logramos con TDD), pero ahora partiendo siempre desde el punto de vista del usuario. Esto nos asegura que todos los cambios que nosotros los desarrolladores queramos hacer le agreguen valor al usuario, ya que los tests ahora parten directamente de los criterios de aceptación de una historia de usuario. Otra ventaja es que de esta manera ampliamos el ciclo de feedback, haciéndolo más accesible y ágil, lo que ayuda también a las prácticas de entrega continua.
 
 Utilizar Specflow fue una buena herramienta para desarrollar estos tests. Aunque al principio dificulta el avance ya que no es algo a lo que estemos acostumbrados, se le puede agarrar la mano fácilmente. A fin de cuentas los tests siguen siendo muy similares en su lógica, es el enfoque lo que más cambia.
-
-
-
-
-
