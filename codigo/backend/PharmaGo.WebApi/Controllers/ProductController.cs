@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PharmaGo.BusinessLogic;
 using PharmaGo.Domain.Entities;
 using PharmaGo.Domain.SearchCriterias;
 using PharmaGo.IBusinessLogic;
@@ -48,6 +49,22 @@ namespace PharmaGo.WebApi.Controllers
             IEnumerable<Product> products = _productManager.GetAll(u => true);
             IEnumerable<ProductDetailModel> productsResponse = products.Select(p => new ProductDetailModel(p));
             return Ok(productsResponse);
+        }
+
+        [HttpGet("{id}")]
+
+        public IActionResult GetById([FromRoute] string id)
+        {
+            Product product = _productManager.GetById(id);
+            return Ok(new ProductDetailModel(product));
+        }
+
+        [HttpPut("{id}")]
+        [AuthorizationFilter(new string[] { nameof(RoleType.Employee) })]
+        public IActionResult Update([FromRoute] string id, [FromBody] ProductModel updatedDrug)
+        {
+            Product product = _productManager.Update(id, updatedDrug.ToEntity());
+            return Ok(new ProductDetailModel(product));
         }
     }
 }

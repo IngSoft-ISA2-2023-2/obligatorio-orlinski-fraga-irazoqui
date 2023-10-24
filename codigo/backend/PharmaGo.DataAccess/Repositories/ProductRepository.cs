@@ -20,7 +20,7 @@ namespace PharmaGo.DataAccess.Repositories
 
         public override Product GetOneByExpression(Expression<Func<Product, bool>> expression)
         {
-            return _context.Set<Product>().Include("Pharmacy").Include("UnitMeasure").Include("Presentation").FirstOrDefault(expression);
+            return _context.Set<Product>().Include("Pharmacy").FirstOrDefault(expression);
         }
 
         public override void InsertOne(Product product)

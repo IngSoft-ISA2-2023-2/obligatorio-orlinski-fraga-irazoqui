@@ -60,7 +60,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [When("I Click the Create button")]
         public void WhenClickTheCreateButton()
         {
-            // Llama al m�todo ValidOrFail para verificar si el producto es v�lido
+            // Llama al metodo ValidOrFail para verificar si el producto es valido
             try
             {
                 _product.ValidOrFail();
@@ -68,7 +68,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             }
             catch (InvalidResourceException)
             {
-                // Maneja la excepci�n si la validaci�n falla
+                // Maneja la excepcion si la validacion falla
                 _isProductCreated = false;
             }
         }
@@ -120,7 +120,7 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [Then("Added to the database")]
         public void ThenAddedToTheDatabase()
         {
-            // No se necesita una base de datos real, as� que no se realiza ninguna acci�n aqu�
+            // No se necesita una base de datos real, asi que no se realiza ninguna accion aqui
         }
         #endregion
 

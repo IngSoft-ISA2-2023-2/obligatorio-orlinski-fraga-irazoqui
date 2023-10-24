@@ -24,9 +24,9 @@ namespace PharmaGo.BusinessLogic
             _userRepository = userRespository;
         }
 
-        public Product GetById(int id)
+        public Product GetById(string code)
         {
-            Product retrievedProduct = _productRepository.GetOneByExpression(p => p.Id == id);
+            Product retrievedProduct = _productRepository.GetOneByExpression(p => p.Code.Equals(code) );
             if (retrievedProduct == null)
             {
                 throw new ResourceNotFoundException("The product does not exist.");
@@ -64,6 +64,28 @@ namespace PharmaGo.BusinessLogic
             _productRepository.InsertOne(product);
             _productRepository.Save();
             return product;
+        }
+
+        public Product Update(string code, Product updatedProduct)
+        {
+            if (updatedProduct == null)
+            {
+                throw new ResourceNotFoundException("The updated product is invalid.");
+            }
+            updatedProduct.ValidOrFail();
+            var productSaved = _productRepository.GetOneByExpression(p => p.Code.Equals(code));
+            if (productSaved == null)
+            {
+                throw new ResourceNotFoundException("The product to update does not exist.");
+            }
+            productSaved.Code = updatedProduct.Code;
+            productSaved.Name = updatedProduct.Name;
+            productSaved.Description = updatedProduct.Description;
+            productSaved.Price = updatedProduct.Price;
+            productSaved.Stock = updatedProduct.Stock;
+            _productRepository.UpdateOne(productSaved);
+            _productRepository.Save();
+            return productSaved;
         }
 
         public void Delete(Product productToDelete, string token) 
