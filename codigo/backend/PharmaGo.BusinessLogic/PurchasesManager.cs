@@ -17,6 +17,7 @@ namespace PharmaGo.BusinessLogic
         private readonly IRepository<PurchaseDetail> _purchaseDetailRepository;
         private readonly IRepository<Session> _sessionRepository;
         private readonly IRepository<User> _userRepository;
+        private readonly IRepository<Product> _productRepository;
 
         private readonly string PENDING = "Pending";
         private readonly string REJECTED = "Rejected";
@@ -27,7 +28,8 @@ namespace PharmaGo.BusinessLogic
                                 IRepository<Drug> drugsRepository,
                                 IRepository<PurchaseDetail> purchaseDetailRepository,
                                 IRepository<Session> sessionRespository,
-                                IRepository<User> userRespository)
+                                IRepository<User> userRespository,
+                                IRepository<Product> productRepository)
         {
             _purchasesRepository = purchasesRepository;
             _pharmacysRepository = pharmacysRepository;
@@ -35,6 +37,7 @@ namespace PharmaGo.BusinessLogic
             _purchaseDetailRepository = purchaseDetailRepository;
             _sessionRepository = sessionRespository;
             _userRepository = userRespository;
+            _productRepository = productRepository;
         }
 
         public Purchase CreatePurchase(Purchase purchase)
@@ -50,7 +53,7 @@ namespace PharmaGo.BusinessLogic
             if (purchase.PurchaseDate == DateTime.MinValue)
                 throw new InvalidResourceException("The purchase date is a mandatory field");
 
-            decimal total = 0;
+            decimal totalDrugs = 0;
             foreach (var detail in purchase.details)
             {
                 int pharmacyId = detail.Pharmacy.Id;
@@ -70,12 +73,46 @@ namespace PharmaGo.BusinessLogic
                     throw new ResourceNotFoundException($"Drug {drugCode} not found in Pharmacy {pharmacy.Name}");
 
                 detail.Pharmacy = pharmacy;
-                total = total + (drug.Price * detail.Quantity);
+                totalDrugs = totalDrugs + (drug.Price * detail.Quantity);
                 detail.Price = drug.Price;
                 detail.Drug = drug;
                 detail.Status = PENDING;
             }
-            purchase.TotalAmount = total;
+
+            decimal totalProducts = 0;
+            if(purchase.detailsProduct !=null && purchase.detailsProduct.Count > 0)
+            {
+                foreach (var productDetail in purchase.detailsProduct)
+                {
+                    int pharmacyId = productDetail.Pharmacy.Id;
+                    if (pharmacyId <= 0)
+                        throw new ResourceNotFoundException($"Pharmacy Id is a mandatory field");
+
+                    var pharmacy = _pharmacysRepository.GetOneByExpression(x => x.Id == pharmacyId);
+                    if (pharmacy is null)
+                        throw new ResourceNotFoundException($"Pharmacy {productDetail.Pharmacy.Id} not found");
+
+                    if (productDetail.Quantity <= 0)
+                        throw new InvalidResourceException("All items quantity should be bigger than zero");
+
+                    string productCode = productDetail.Product.Code;
+                    var product =  this._productRepository.GetAllByExpression(x=> 
+                        x.Code == productCode 
+                        && x.Deleted == false 
+                        && x.Pharmacy.Id == productDetail.Pharmacy.Id).FirstOrDefault();
+
+                    if (product is null)
+                        throw new ResourceNotFoundException($"Product {productCode} not found in Pharmacy {pharmacy.Name}");
+
+                    productDetail.Pharmacy = pharmacy;
+                    totalProducts = totalProducts + (product.Price * productDetail.Quantity);
+                    productDetail.Price = product.Price;
+                    productDetail.Product = product;
+                    productDetail.Status = PENDING;
+                    product.Stock -= productDetail.Quantity;
+                }
+            }
+            purchase.TotalAmount = totalDrugs + totalProducts;
             purchase.TrackingCode = generateTrackingCode();
             _purchasesRepository.InsertOne(purchase);
             _purchasesRepository.Save();

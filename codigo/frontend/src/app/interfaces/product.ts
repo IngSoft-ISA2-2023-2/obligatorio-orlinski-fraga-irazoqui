@@ -20,6 +20,7 @@ export interface Product {
   code: string;
   name: string;
   description: string;
+  quantity: number;
   price: number;
   stock: number;
   pharmacy: {
