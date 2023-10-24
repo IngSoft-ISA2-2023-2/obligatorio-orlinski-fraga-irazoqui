@@ -96,8 +96,6 @@ Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades c
 - [Video de revisión de bugs con el PO](https://youtu.be/Xfz3ubNvXgk)
 - [Resumen de la retrospectiva](./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf)
 
-#### Ceremonias realizadas
-
 ### Conclusiones del equipo
 
 Aplicar BDD fue muy interesante ya que nos permitió desarrollar nuestra aplicación de forma ágil y con código testeable (antes lo logramos con TDD), pero ahora partiendo siempre desde el punto de vista del usuario. Esto nos asegura que todos los cambios que nosotros los desarrolladores queramos hacer le agreguen valor al usuario, ya que los tests ahora parten directamente de los criterios de aceptación de una historia de usuario. Otra ventaja es que de esta manera ampliamos el ciclo de feedback, haciéndolo más accesible y ágil, lo que ayuda también a las prácticas de entrega continua.
