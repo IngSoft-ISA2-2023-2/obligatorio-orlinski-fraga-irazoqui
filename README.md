@@ -89,6 +89,7 @@ En esta etapa aprendimos mucho sobre la automatización de ciertas partes del pi
 Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades como fueron indicadas por los profesores. Sin embargo, en esta oportunidad utilizamos BDD, una nueva metodología ágil, junto con la herramienta Specflow para desarrollar los tests. Esto significó un cambio en el tablero, ya que varias columnas del tablero sustentable pasaron a ser las etapas de BDD.
 
 ### Artefactos
+- [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%203/Proceso%20de%20ingenieria%20en%20KANBAN%203.md)
 - [Código de los casos de prueba](./documentos/Entrega%203/Código%20de%20los%20casos%20de%20prueba.pdf)
 - [Detalle de registro de esfuerzo](./documentos/Entrega%203/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%203/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
