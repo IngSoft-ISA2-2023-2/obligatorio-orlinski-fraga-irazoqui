@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Linq.Expressions;
 using PharmaGo.WebApi.Controllers;
 using Microsoft.AspNetCore.Http;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace SpecFlowPharmaGo.Specs.StepDefinitions
 {
@@ -20,9 +21,10 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
         [Binding]
         public class ProductSteps
         {
-            private Product _product = new Product();
-            private bool _isProductCreated;
             private Pharmacy _pharmacy = new Pharmacy() { Id = 1, Name = "pharmacy", Address = "address", Users = new List<User>() };
+            private Product _productBackup;
+            private bool _isProductUpdated;
+            private Product _product;
             private Mock<IRepository<Product>> _productRepository;
             private Mock<IRepository<Pharmacy>> _pharmacyRepository;
             private Mock<IRepository<Session>> _sessionRepository;
@@ -31,78 +33,86 @@ namespace SpecFlowPharmaGo.Specs.StepDefinitions
             private string _mockToken = "c80da9ed-1b41-4768-8e34-b728cae25d2f";
 
             #region Scenario: Modify new product successfully
-            [Given("An existing product (.*)")]
-            public void GivenAValidProductCodeInPharmacy(string code)
+
+            [Given("An existing product")]
+            public void GivenAValidProductCodeInPharmacy()
             {
-                _product.Code = code;
+                _product = new Product() { Code = "1", Name = "Coca", Description = "Dale sabor a tu vida", Price = 50, Stock = 10, Deleted = false, Id = 1, Pharmacy = _pharmacy};
+                _productBackup = new Product() { Code = "1", Name = "Coca", Description = "Dale sabor a tu vida", Price = 50, Stock = 10, Deleted = false, Id = 1, Pharmacy = _pharmacy };
             }
 
             [When("I change a (.*) with the (.*)")]
-
-            [When("I Click the Create button")]
-            public void WhenClickTheCreateButton()
+            public void WhenIChangeTheValue(string variable, string value)
             {
-                // Llama al metodo ValidOrFail para verificar si el producto es valido
-                try
+                if(variable=="name")
                 {
-                    _product.ValidOrFail();
-                    _isProductCreated = true;
+                    _product.Name = value;
                 }
-                catch (InvalidResourceException)
+                else if (variable == "description")
                 {
-                    // Maneja la excepcion si la validacion falla
-                    _isProductCreated = false;
+                    _product.Description = value;
+                }
+                else if (variable == "price")
+                {
+                    if (decimal.TryParse(value, out decimal parsedPrice))
+                    {
+                        _product.Price = parsedPrice;
+                    }
+                }
+                else if (variable == "stock")
+                {
+                    if (int.TryParse(value, out int parsedStock))
+                    {
+                        _product.Stock = parsedStock;
+                    }
                 }
             }
+            [When("Click the Modify button")]
+            public void WhenClickTheModifyButton()
+            { }
 
             [Then("The product is modified (.*)")]
-            public void ThenTheProductIsCreatedSuccessfully(string isCreated)
+            public void ThenTheProductIsUpdatedSuccessfully(string isModified)
             {
                 _userRepository = new Mock<IRepository<User>>();
                 _sessionRepository = new Mock<IRepository<Session>>();
                 _productRepository = new Mock<IRepository<Product>>();
                 _pharmacyRepository = new Mock<IRepository<Pharmacy>>();
                 _productManager = new ProductManager(_productRepository.Object, _pharmacyRepository.Object, _sessionRepository.Object, _userRepository.Object);
-                if (bool.TryParse(isCreated, out bool parsedIsCreated))
+                if (bool.TryParse(isModified, out bool parsedIsUpdated))
                 {
-                    _productManager.Create(_product, _mockToken);
+                    _productManager.Update(_product.Code, _product);
                     try
                     {
-                        if (parsedIsCreated)
+                        if (parsedIsUpdated)
                         {
-                            Assert.True(_isProductCreated);
+                            Assert.True(_isProductUpdated);
                         }
                         else
                         {
-                            Assert.False(_isProductCreated);
+                            Assert.False(_isProductUpdated);
                         }
                     }
                     catch (InvalidResourceException)
                     {
-                        if (!parsedIsCreated)
+                        if (!parsedIsUpdated)
                         {
-                            Assert.True(_isProductCreated);
+                            Assert.True(_isProductUpdated);
                         }
                         else
                         {
-                            Assert.False(_isProductCreated);
+                            Assert.False(_isProductUpdated);
                         }
                     }
-
                 }
-
             }
-
-            [Then("A message in the lower part on the screen appears")]
-            public void ThenAMessageInTheLowerPartOnTheScreenAppears()
+            [Then(@"Database is not updated")]
+            public void ThenDatabaseIsNotUpdated()
             {
-                // No aplica, solo al frontend
             }
-
-            [Then("Added to the database")]
-            public void ThenAddedToTheDatabase()
+            [Then(@"Updated in the database")]
+            public void ThenUpdatedInTheDatabase()
             {
-                // No se necesita una base de datos real, asi que no se realiza ninguna accion aqui
             }
             #endregion
         }

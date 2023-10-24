@@ -83,19 +83,14 @@ namespace SpecFlowPharmaGo.Specs.Features
         [Xunit.SkippableTheoryAttribute(DisplayName="Modify a product successfully")]
         [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
         [Xunit.TraitAttribute("Description", "Modify a product successfully")]
-        [Xunit.InlineDataAttribute("12345", "Coca", "Dale sabor a tu vida", "80", "10", "name", "coca1", "true", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "Coca", "Lorem ipsum dolor sit amet consectetur adipiscing elit malesuada vulp.", "80", "10", "description", "Dale sabor a tu vida", "true", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "Coca", "Dale sabor a tu vida", "80", "10", "price", "50", "true", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "Coca", "Dale sabor a tu vida", "80", "10", "stock", "30", "true", new string[0])]
-        public virtual void ModifyAProductSuccessfully(string code, string name, string description, string price, string stock, string variable, string value, string isModified, string[] exampleTags)
+        [Xunit.InlineDataAttribute("name", "coca1", "true", new string[0])]
+        [Xunit.InlineDataAttribute("description", "Dale sabor a tu vida", "true", new string[0])]
+        [Xunit.InlineDataAttribute("price", "50", "true", new string[0])]
+        [Xunit.InlineDataAttribute("stock", "30", "true", new string[0])]
+        public virtual void ModifyAProductSuccessfully(string variable, string value, string isModified, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("code", code);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("price", price);
-            argumentsOfScenario.Add("stock", stock);
             argumentsOfScenario.Add("variable", variable);
             argumentsOfScenario.Add("value", value);
             argumentsOfScenario.Add("isModified", isModified);
@@ -130,7 +125,7 @@ testRunner.When(string.Format("I change a ${0} with the ${1}", variable, value),
 testRunner.And("Click the Modify button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 7
-testRunner.Then("The product is modified successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The product is modified ${0}", isModified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 8
 testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -145,17 +140,12 @@ testRunner.And("Updated in the database", ((string)(null)), ((TechTalk.SpecFlow.
         [Xunit.SkippableTheoryAttribute(DisplayName="Invalid product name modifying existing product")]
         [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
         [Xunit.TraitAttribute("Description", "Invalid product name modifying existing product")]
-        [Xunit.InlineDataAttribute("12345", "!$%", "Dale sabor a tu vida", "80", "10", "50", "name", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "", "Dale sabor a tu vida", "80", "10", "50", "name", "false", new string[0])]
-        public virtual void InvalidProductNameModifyingExistingProduct(string code, string name, string description, string price, string stock, string variable, string value, string isModified, string[] exampleTags)
+        [Xunit.InlineDataAttribute("name", "!$%", "false", new string[0])]
+        [Xunit.InlineDataAttribute("name", "", "false", new string[0])]
+        public virtual void InvalidProductNameModifyingExistingProduct(string variable, string value, string isModified, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("code", code);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("price", price);
-            argumentsOfScenario.Add("stock", stock);
             argumentsOfScenario.Add("variable", variable);
             argumentsOfScenario.Add("value", value);
             argumentsOfScenario.Add("isModified", isModified);
@@ -184,13 +174,13 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("An existing product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
-testRunner.When("I change the name to a new name", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I change a ${0} with the ${1}", variable, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 21
 testRunner.And("Click the Modify button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
-testRunner.Then("The product is not modified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The product is modified ${0}", isModified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 23
 testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -205,17 +195,12 @@ testRunner.And("Database is not updated", ((string)(null)), ((TechTalk.SpecFlow.
         [Xunit.SkippableTheoryAttribute(DisplayName="Invalid product description modifying existing product")]
         [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
         [Xunit.TraitAttribute("Description", "Invalid product description modifying existing product")]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "description", "Dale sabor a tu vida", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "description", "", "false", new string[0])]
-        public virtual void InvalidProductDescriptionModifyingExistingProduct(string code, string name, string description, string price, string stock, string variable, string value, string isModified, string[] exampleTags)
+        [Xunit.InlineDataAttribute("description", "!$%", "false", new string[0])]
+        [Xunit.InlineDataAttribute("description", "", "false", new string[0])]
+        public virtual void InvalidProductDescriptionModifyingExistingProduct(string variable, string value, string isModified, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("code", code);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("price", price);
-            argumentsOfScenario.Add("stock", stock);
             argumentsOfScenario.Add("variable", variable);
             argumentsOfScenario.Add("value", value);
             argumentsOfScenario.Add("isModified", isModified);
@@ -244,13 +229,13 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("An existing product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 33
-testRunner.When("I change a description to a new description", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I change a ${0} with the ${1}", variable, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
 testRunner.And("Click the Modify button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 35
-testRunner.Then("The product is not modified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The product is modified ${0}", isModified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 36
 testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -265,18 +250,13 @@ testRunner.And("Database is not updated", ((string)(null)), ((TechTalk.SpecFlow.
         [Xunit.SkippableTheoryAttribute(DisplayName="Invalid product price modifying existing product")]
         [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
         [Xunit.TraitAttribute("Description", "Invalid product price modifying existing product")]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "price", "-10", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "price", "abc", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "price", "", "false", new string[0])]
-        public virtual void InvalidProductPriceModifyingExistingProduct(string code, string name, string description, string price, string stock, string variable, string value, string isModified, string[] exampleTags)
+        [Xunit.InlineDataAttribute("price", "-10", "false", new string[0])]
+        [Xunit.InlineDataAttribute("price", "abc", "false", new string[0])]
+        [Xunit.InlineDataAttribute("price", "!$%", "false", new string[0])]
+        public virtual void InvalidProductPriceModifyingExistingProduct(string variable, string value, string isModified, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("code", code);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("price", price);
-            argumentsOfScenario.Add("stock", stock);
             argumentsOfScenario.Add("variable", variable);
             argumentsOfScenario.Add("value", value);
             argumentsOfScenario.Add("isModified", isModified);
@@ -305,13 +285,13 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("An existing product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 45
-testRunner.When("I change a price to a new price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I change a ${0} with the ${1}", variable, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 46
 testRunner.And("Click the Modify button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 47
-testRunner.Then("The product is not modified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The product is modified ${0}", isModified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 48
 testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -326,18 +306,13 @@ testRunner.And("Database is not updated", ((string)(null)), ((TechTalk.SpecFlow.
         [Xunit.SkippableTheoryAttribute(DisplayName="Invalid product stock modifying existing product")]
         [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
         [Xunit.TraitAttribute("Description", "Invalid product stock modifying existing product")]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "stock", "-5", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "stock", "abc", "false", new string[0])]
-        [Xunit.InlineDataAttribute("12345", "coca", "Dale sabor a tu vida", "80", "10", "stock", "", "false", new string[0])]
-        public virtual void InvalidProductStockModifyingExistingProduct(string code, string name, string description, string price, string stock, string variable, string value, string isModified, string[] exampleTags)
+        [Xunit.InlineDataAttribute("stock", "-5", "false", new string[0])]
+        [Xunit.InlineDataAttribute("stock", "abc", "false", new string[0])]
+        [Xunit.InlineDataAttribute("stock", "", "false", new string[0])]
+        public virtual void InvalidProductStockModifyingExistingProduct(string variable, string value, string isModified, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("code", code);
-            argumentsOfScenario.Add("name", name);
-            argumentsOfScenario.Add("description", description);
-            argumentsOfScenario.Add("price", price);
-            argumentsOfScenario.Add("stock", stock);
             argumentsOfScenario.Add("variable", variable);
             argumentsOfScenario.Add("value", value);
             argumentsOfScenario.Add("isModified", isModified);
@@ -366,66 +341,19 @@ this.ScenarioInitialize(scenarioInfo);
 testRunner.Given("An existing product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 58
-testRunner.When("I change a stock to a new stock", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I change a ${0} with the ${1}", variable, value), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 59
 testRunner.And("Click the Modify button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 60
-testRunner.Then("The product is not modified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then(string.Format("The product is modified ${0}", isModified), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 61
 testRunner.And("A message in the lower part on the screen appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 62
 testRunner.And("Database is not updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Change screen before modifying the product")]
-        [Xunit.TraitAttribute("FeatureTitle", "Modify product")]
-        [Xunit.TraitAttribute("Description", "Change screen before modifying the product")]
-        public virtual void ChangeScreenBeforeModifyingTheProduct()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Change screen before modifying the product", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 69
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 70
-testRunner.Given("An existing product", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 71
-testRunner.When("I change name, description and/or price", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 72
-testRunner.And("Leave the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 73
-testRunner.Then("The product is not modified", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 74
-testRunner.And("The user is redirected to another page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
