@@ -2,17 +2,35 @@ export class PurchaseRequest {
     buyerEmail: string = "";
     purchaseDate: string = "";
     details: PurchaseRequestDetail[] = [];
+    productDetails: PurchaseProductRequestDetail[] = [];
 
     constructor(buyerEmail: string, 
                     purchaseDate: string, 
-                    details: PurchaseRequestDetail[]){
+                    details: PurchaseRequestDetail[],
+                    productDetails: PurchaseProductRequestDetail[]
+                    ){
         this.buyerEmail = buyerEmail;
         this.purchaseDate = purchaseDate;
         this.details = details;
+        this.productDetails = productDetails;
     }
 }
 
 export class PurchaseRequestDetail {
+  code: string = "";
+  quantity: number = 1;
+  pharmacyId: number = 1;
+
+  constructor(code: string, 
+                        quantity: number, 
+                        pharmacyId: number){
+      this.code = code;
+      this.quantity = quantity;
+      this.pharmacyId = pharmacyId;
+  }
+}
+
+export class PurchaseProductRequestDetail {
   code: string = "";
   quantity: number = 1;
   pharmacyId: number = 1;
@@ -32,7 +50,8 @@ export interface PurchaseResponse {
   purchaseDate: string;
   trackingCode: string;
   totalAmount: number;
-  details: PurchaseDetailModelResponse[]
+  details: PurchaseDetailModelResponse[];
+  productDetails: PurchaseProductRequestDetail[];
 }
 
 export interface PurchaseDetailModelResponse {

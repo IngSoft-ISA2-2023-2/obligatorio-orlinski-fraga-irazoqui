@@ -19,6 +19,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
         private Mock<IRepository<User>> _userRespository;
         private Mock<IRepository<Session>> _sessionRespository;
         private Mock<IRepository<PurchaseDetail>> _purchaseDetailRespository;
+        private Mock<IRepository<Product>> _productRespository;
         private PurchasesManager _purchasesManager;
         private Purchase purchase;
         private Purchase purchase_2;
@@ -44,8 +45,10 @@ namespace PharmaGo.Test.BusinessLogic.Test
             _userRespository = new Mock<IRepository<User>>(MockBehavior.Strict);
             _sessionRespository = new Mock<IRepository<Session>>(MockBehavior.Strict);
             _purchaseDetailRespository = new Mock<IRepository<PurchaseDetail>>(MockBehavior.Strict);
+            _productRespository = new Mock<IRepository<Product>>();
+
             _purchasesManager = new PurchasesManager(_purchaseRespository.Object, _pharmacyRespository.Object, _drugsRespository.Object,
-            _purchaseDetailRespository.Object, _sessionRespository.Object, _userRespository.Object);
+            _purchaseDetailRespository.Object, _sessionRespository.Object, _userRespository.Object, _productRespository.Object);
 
             unitMeasure1 = new UnitMeasure { Id = 1, Deleted = false, Name = "ml" };
             unitMeasure2 = new UnitMeasure { Id = 2, Deleted = false, Name = "mg" };
