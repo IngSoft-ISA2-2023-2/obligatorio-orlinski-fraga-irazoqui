@@ -10,51 +10,123 @@
   <c-container>
     <c-row [ngStyle]="{ width: '100%' }">
       <c-col>
-        <h3 [ngStyle]="{ 'text-align': 'center' }">Cart</h3>
-        <div *ngIf="cart.length > 0">
-          <table cTable hover [responsive]="true">
+        <h2 [ngStyle]="{ 'text-align': 'center' }">Cart</h2>
+        <div *ngIf="cart.length > 0 || cartProducts.length > 0">
+          <div *ngIf="cart.length > 0">
+            <h4 [ngStyle]="{ 'text-align': 'left' }">Drugs</h4>
+            <table cTable hover [responsive]="true">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Drug</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let drug of cart; let indexOfelement = index">
+                  <th scope="row">{{ indexOfelement + 1 }}</th>
+                  <td>{{ drug.name }}</td>
+                  <td>{{ drug.price | currency }}</td>
+                  <td>{{ drug.quantity }}</td>
+                  <td>{{ drug.price * drug.quantity | currency }}</td>
+                  <td>
+                    <button
+                      title="Delete"
+                      class="btn btn-outline-info"
+                      (click)="delete(indexOfelement)"
+                    >
+                      <svg cIcon name="cil-trash"></svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><b>Drugs total</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <b>{{ totalDrugs | currency }}</b>
+                  </td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <div *ngIf="cartProducts.length > 0">
+            <br>
+            <h4 [ngStyle]="{ 'text-align': 'left' }">Products</h4>
+            <table cTable hover [responsive]="true">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of cartProducts; let indexOfelement = index">
+                  <th scope="row">{{ indexOfelement + 1 }}</th>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.price | currency }}</td>
+                  <td>{{ product.quantity }}</td>
+                  <td>{{ product.price * product.quantity | currency }}</td>
+                  <td>
+                    <button
+                      title="Delete"
+                      class="btn btn-outline-info"
+                      (click)="deleteProduct(indexOfelement)"
+                    >
+                      <svg cIcon name="cil-trash"></svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><b>Products total</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <b>{{ totalProducts | currency }}</b>
+                  </td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <table cTable>
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Drug</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
-                <th scope="col"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let drug of cart; let indexOfelement = index">
-                <th scope="row">{{ indexOfelement + 1 }}</th>
-                <td>{{ drug.name }}</td>
-                <td>{{ drug.price | currency }}</td>
-                <td>{{ drug.quantity }}</td>
-                <td>{{ drug.price * drug.quantity | currency }}</td>
-                <td>
-                  <button
-                    title="Delete"
-                    class="btn btn-outline-info"
-                    (click)="delete(indexOfelement)"
-                  >
-                    <svg cIcon name="cil-trash"></svg>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot>
               <tr>
                 <td><b>Total</b></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>
-                  <b>{{ total | currency }}</b>
-                </td>
                 <td></td>
+                <td>
+                  <b [ngStyle]="{ 'text-align': 'right' }">{{ totalCombined | currency }}</b>
+                </td>
               </tr>
-            </tfoot>
+            </tbody>
           </table>
-
           <div class="mb-3" [ngStyle]="{ 'text-align': 'end' }">
             <button cButton color="primary" [routerLink]="['/home']">
               Add another item
@@ -73,7 +145,7 @@
           </div>
         </div>
 
-        <div *ngIf="cart.length === 0" class="alert alert-info" role="alert">
+        <div *ngIf="cart.length === 0 && cartProducts.length === 0" class="alert alert-info" role="alert">
           <h4 class="alert-heading">Your cart is empty.</h4>
           <p>Please add items to your cart clicking on the button below.</p>
           <hr />
