@@ -28,6 +28,7 @@
 - [Entrega 1](#entrega-1)
 - [Entrega 2](#entrega-2)
 - [Entrega 3](#entrega-3)
+- [Entrega 4](#entrega-4)
 
 ## Entrega 1
 
@@ -101,3 +102,23 @@ Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades c
 Aplicar BDD fue muy interesante ya que nos permitió desarrollar nuestra aplicación de forma ágil y con código testeable (antes lo logramos con TDD), pero ahora partiendo siempre desde el punto de vista del usuario. Esto nos asegura que todos los cambios que nosotros los desarrolladores queramos hacer le agreguen valor al usuario, ya que los tests ahora parten directamente de los criterios de aceptación de una historia de usuario. Otra ventaja es que de esta manera ampliamos el ciclo de feedback, haciéndolo más accesible y ágil, lo que ayuda también a las prácticas de entrega continua.
 
 Utilizar Specflow fue una buena herramienta para desarrollar estos tests. Aunque al principio dificulta el avance ya que no es algo a lo que estemos acostumbrados, se le puede agarrar la mano fácilmente. A fin de cuentas los tests siguen siendo muy similares en su lógica, es el enfoque lo que más cambia.
+
+## Entrega 4
+
+### Informe de avance
+En esta entrega el objetivo paso a ser la automatización de testing exploratorio utilizando la herramienta Selenium. Nos enfocamos únicamente en automatizar los tests para las 2 nuevas features que fueron introducidas para la entrega 3. 
+
+Por otro lado, también realizamos un análisis de métricas de DevOps con las métricas que hemos ido guardando a lo largo del proyecto.
+
+### Artefactos
+- [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%204/Proceso%20de%20ingenieria%20en%20KANBAN%204.md)
+- [Detalle de registro de esfuerzo](./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
+- [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%204/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
+- [Video de revisión de tests automatizados con el PO](https://youtu.be/Xfz3ubNvXgk)
+- [Resumen de la retrospectiva](./documentos/Entrega%204/Resumen%20de%20la%20retrospectiva%20(Entrega%204).pdf)
+- [Análisis de métricas de DevOps]()
+- [Evidencia de ejecución de casos de prueba]() 
+
+### Conclusiones del equipo
+Utilizando Selenium pudimos fácilmente automatizar muchos de los tests que anteriormente teníamos que hacer de forma manual, ahora teniendo que realizarlos solo una vez para grabar las pruebas. Estas pruebas exploratorias estan en el nivel más alto de la piramide de testing que vimos en el curso, y tenerlas automatizadas es un gran beneficio ya que realizar paso a paso cada escenario definido para cada feature toma mucho tiempo. Tener estas pruebas no solo agiliza y brinda más confiabildiad a los desarrolladores, sino que también es útil para el cliente, ya que pueden ver como las pruebas se ejecutan y ver que todos los requerimientos funcionales se estan cumpliendo.
+
