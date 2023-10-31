@@ -2,6 +2,8 @@
 
 En esta sección, vamos a profundizar en los aspectos clave del tablero Kanban y su relación con nuestro proceso de ingeniería ágil. Para una comprensión completa, abordaremos los siguientes elementos:
 
+![Tablero](../../imagenes/tablero%20entrega%204.png)
+
 ## Métodos de Diseño y Pruebas
 
 ### 1 - Pruebas (BDD)
