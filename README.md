@@ -120,7 +120,7 @@ Por otro lado, también realizamos un análisis de métricas de DevOps con las m
 - [Detalle de registro de esfuerzo](./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%204).pdf)
 - [Análisis de métricas de DevOps](./documentos/Entrega%204/An%C3%A1lisis%20de%20m%C3%A9tricas%20de%20DevOps.pdf)
 - [Análisis de métricas de DevOps (Hoja de cálculo)](./documentos/Entrega%204/An%C3%A1lisis%20de%20m%C3%A9tricas%20de%20DevOps.xlsx)
-- [Evidencia de ejecución de casos de prueba]() 
+- [Evidencia de ejecución de casos de prueba](https://youtu.be/ABwP-JLhrqM) 
 
 ### Conclusiones del equipo
 
