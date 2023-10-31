@@ -90,6 +90,7 @@ En esta etapa aprendimos mucho sobre la automatización de ciertas partes del pi
 Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades como fueron indicadas por los profesores. Sin embargo, en esta oportunidad utilizamos BDD, una nueva metodología ágil, junto con la herramienta Specflow para desarrollar los tests. Esto significó un cambio en el tablero, ya que varias columnas del tablero sustentable pasaron a ser las etapas de BDD.
 
 ### Artefactos
+
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%203/Proceso%20de%20ingenieria%20en%20KANBAN%203.md)
 - [Código de los casos de prueba](./documentos/Entrega%203/Código%20de%20los%20casos%20de%20prueba.pdf)
 - [Detalle de registro de esfuerzo](./documentos/Entrega%203/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
@@ -106,19 +107,21 @@ Utilizar Specflow fue una buena herramienta para desarrollar estos tests. Aunque
 ## Entrega 4
 
 ### Informe de avance
-En esta entrega el objetivo paso a ser la automatización de testing exploratorio utilizando la herramienta Selenium. Nos enfocamos únicamente en automatizar los tests para las 2 nuevas features que fueron introducidas para la entrega 3. 
+
+En esta entrega el objetivo paso a ser la automatización de testing exploratorio utilizando la herramienta Selenium. Nos enfocamos únicamente en automatizar los tests para las 2 nuevas features que fueron introducidas para la entrega 3 y Bugs de la entrega 2.
 
 Por otro lado, también realizamos un análisis de métricas de DevOps con las métricas que hemos ido guardando a lo largo del proyecto.
 
 ### Artefactos
+
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%204/Proceso%20de%20ingenieria%20en%20KANBAN%204.md)
-- [Detalle de registro de esfuerzo](./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%204/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
-- [Video de revisión de tests automatizados con el PO](https://youtu.be/Xfz3ubNvXgk)
+- [Video de revisión de tests automatizados con el PO](https://youtu.be/ABwP-JLhrqM)
+- [Detalle de registro de esfuerzo](./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
 - [Resumen de la retrospectiva](./documentos/Entrega%204/Resumen%20de%20la%20retrospectiva%20(Entrega%204).pdf)
 - [Análisis de métricas de DevOps]()
 - [Evidencia de ejecución de casos de prueba]() 
 
 ### Conclusiones del equipo
-Utilizando Selenium pudimos fácilmente automatizar muchos de los tests que anteriormente teníamos que hacer de forma manual, ahora teniendo que realizarlos solo una vez para grabar las pruebas. Estas pruebas exploratorias estan en el nivel más alto de la piramide de testing que vimos en el curso, y tenerlas automatizadas es un gran beneficio ya que realizar paso a paso cada escenario definido para cada feature toma mucho tiempo. Tener estas pruebas no solo agiliza y brinda más confiabildiad a los desarrolladores, sino que también es útil para el cliente, ya que pueden ver como las pruebas se ejecutan y ver que todos los requerimientos funcionales se estan cumpliendo.
 
+Utilizando Selenium pudimos fácilmente automatizar muchos de los tests que anteriormente teníamos que hacer de forma manual, ahora teniendo que realizarlos solo una vez para grabar las pruebas. Estas pruebas exploratorias estan en el nivel más alto de la piramide de testing que vimos en el curso, y tenerlas automatizadas es un gran beneficio ya que realizar paso a paso cada escenario definido para cada feature toma mucho tiempo. Tener estas pruebas no solo agiliza y brinda más confiabildiad a los desarrolladores, sino que también es útil para el cliente, ya que pueden ver como las pruebas se ejecutan y ver que todos los requerimientos funcionales se estan cumpliendo.
