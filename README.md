@@ -106,7 +106,7 @@ Utilizar Specflow fue una buena herramienta para desarrollar estos tests. Aunque
 ## Entrega 4
 
 ### Informe de avance
-En esta entrega el objetivo paso a ser la automatización de testing exploratorio utilizando la herramienta Selenium. Nos enfocamos únicamente en automatizar los tests para las 2 nuevas features que fueron introducidas para la entrega 3. 
+En esta entrega el objetivo paso a ser la automatización de testing exploratorio utilizando la herramienta Selenium. Nos enfocamos únicamente en automatizar los tests para las 2 nuevas features que fueron introducidas para la entrega 3 y Bugs de la entrega 2. 
 
 Por otro lado, también realizamos un análisis de métricas de DevOps con las métricas que hemos ido guardando a lo largo del proyecto.
 
