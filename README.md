@@ -67,9 +67,9 @@ En cuanto al tablero, en esta entrega decidimos cambiar y pasar a utilizar un ta
 - [Informe con identificación y justificación de los bugs](./documentos/Entrega%202/Informe%20con%20identificacion%20y%20justificacion%20de%20los%20bugs.md)
 - [Evidencia de reparación de bugs con TDD](./documentos/Entrega%202/Evidencia%20de%20reparaci%C3%B3n%20de%20bugs%20con%20TDD.pdf)
 - [Configuración del pipeline y si vínculo con el tablero](./documentos/Entrega%202/Configuracion%20pipeline.md)
-- [Detalle de registro de esfuerzo](./documentos/Entrega%202/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%202).pdf)
+- [Detalle de registro de esfuerzo](<./documentos/Entrega%202/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%202).pdf>)
 - [Video de revisión de bugs con el PO](https://youtu.be/Xfz3ubNvXgk)
-- [Resumen de la retrospectiva](./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf)
+- [Resumen de la retrospectiva](<./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf>)
 
 #### Ceremonias realizadas
 
@@ -93,10 +93,10 @@ Para esta etapa, nos enfocamos en la implementación de nuevas funcionalidades c
 
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%203/Proceso%20de%20ingenieria%20en%20KANBAN%203.md)
 - [Código de los casos de prueba](./documentos/Entrega%203/Código%20de%20los%20casos%20de%20prueba.pdf)
-- [Detalle de registro de esfuerzo](./documentos/Entrega%203/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf)
+- [Detalle de registro de esfuerzo](<./documentos/Entrega%203/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%203).pdf>)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%203/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
 - [Video de revisión de bugs con el PO](https://youtu.be/Xfz3ubNvXgk)
-- [Resumen de la retrospectiva](./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf)
+- [Resumen de la retrospectiva](<./documentos/Entrega%202/Resumen%20de%20la%20retrospectiva%20(Entrega%202).pdf>)
 
 ### Conclusiones del equipo
 
@@ -117,10 +117,12 @@ Por otro lado, también realizamos un análisis de métricas de DevOps con las m
 - [Definición/uso del proceso de ingeniería en el contexto de KANBAN](./documentos/Entrega%204/Proceso%20de%20ingenieria%20en%20KANBAN%204.md)
 - [Explicación del tablero y su vínculo con el proceso de ingeniería](./documentos/Entrega%204/Explicacion%20del%20tablero%20y%20su%20vinculo%20con%20el%20proceso%20de%20ingenieria.md)
 - [Video de revisión de tests automatizados con el PO](https://youtu.be/ABwP-JLhrqM)
-- [Detalle de registro de esfuerzo](./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%204).pdf)
+- [Detalle de registro de esfuerzo](<./documentos/Entrega%204/Detalle%20de%20registro%20de%20esfuerzo%20(Entrega%204).pdf>)
 - [Análisis de métricas de DevOps](./documentos/Entrega%204/An%C3%A1lisis%20de%20m%C3%A9tricas%20de%20DevOps.pdf)
 - [Análisis de métricas de DevOps (Hoja de cálculo)](./documentos/Entrega%204/An%C3%A1lisis%20de%20m%C3%A9tricas%20de%20DevOps.xlsx)
-- [Evidencia de ejecución de casos de prueba](https://youtu.be/ABwP-JLhrqM) 
+- [Evidencia de ejecución de casos de prueba - Modificar Producto](https://youtu.be/YWos0fMCAAY)
+- [Evidencia de ejecución de casos de prueba - Baja Producto](https://youtu.be/Nt5mQDYrBOY)
+- [Evidencia de ejecución de casos de prueba - Alta Producto](https://youtu.be/uBKCwJ1C7OM)
 
 ### Conclusiones del equipo
 
