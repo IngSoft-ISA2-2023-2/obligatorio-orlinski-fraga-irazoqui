@@ -29,6 +29,8 @@
 - [Entrega 2](#entrega-2)
 - [Entrega 3](#entrega-3)
 - [Entrega 4](#entrega-4)
+- [Entrega 5](#entrega-5)
+
 
 ## Entrega 1
 
@@ -127,3 +129,6 @@ Por otro lado, también realizamos un análisis de métricas de DevOps con las m
 ### Conclusiones del equipo
 
 Utilizando Selenium pudimos fácilmente automatizar muchos de los tests que anteriormente teníamos que hacer de forma manual, ahora teniendo que realizarlos solo una vez para grabar las pruebas. Estas pruebas exploratorias estan en el nivel más alto de la piramide de testing que vimos en el curso, y tenerlas automatizadas es un gran beneficio ya que realizar paso a paso cada escenario definido para cada feature toma mucho tiempo. Tener estas pruebas no solo agiliza y brinda más confiabildiad a los desarrolladores, sino que también es útil para el cliente, ya que pueden ver como las pruebas se ejecutan y ver que todos los requerimientos funcionales se estan cumpliendo.
+
+## Entrega 5
+- [Informe académico final](./documentos/Entrega%205/Informe%20académico%20final.pdf)
